@@ -26,15 +26,17 @@
                     <asp:TextBox ID="txtEmail" runat="server" class="textInput form-control col-8"></asp:TextBox>
                 </div>
                 <div class="form-group row justify-content-center">
-                    <label for="txtPassowrd" class="labels col-9">Password*</label><br />
+                    <label for="txtPassword" class="labels col-9">Password*</label><br />
                     <asp:TextBox ID="txtPassword" runat="server"  class="textInput form-control col-8"></asp:TextBox>
                 </div>
                 
                 <div class="form-group row justify-content-center">
-                   <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn btn-primary btn-block col-8"/>
+                    <asp:Label ID="errorLabel" class="col-8" runat="server" Text="Label" ForeColor="Red" Visible="False"></asp:Label>
+
+                   <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn btn-primary btn-block col-8" OnClick="btnLogin_Click"/>
                 </div>
                
-                <p id="createAccount"><strong>Not registered yet?</strong><a runat="server" href="~/RegisterUser.aspx"> Create An Account</a></p>
+                <p id="createAccount"><strong>Not registered yet?</strong><a runat="server" href="~/Registration/RegisterUser.aspx"> Create An Account</a></p>
             </div>
             
         </div>
@@ -43,10 +45,17 @@
 
         </div>
         </div>
-    </form>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
+        <asp:SqlDataSource ID="loginDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Users] WHERE (([userEmail] = @userEmail) AND ([password] = @password))">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="txtEmail" Name="userEmail" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtPassword" Name="password" PropertyName="Text" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </form>
+
+    </body>
 </html>

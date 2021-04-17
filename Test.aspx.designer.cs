@@ -10,7 +10,7 @@
 
 namespace StockManagementApplication
 {
-    public partial class RegisterUser
+    public partial class Test
     {
 
         /// <summary>
