@@ -22,9 +22,15 @@ namespace StockManagementApplication
                 bool duplicate = data.Table.Rows.Count > 0;
                 if (!duplicate)
                 {
+                    //DateTime today = DateTime.Today;
+
                     registrationDataSource.InsertParameters["userEmail"].DefaultValue = txtEmail.Text;
                     registrationDataSource.InsertParameters["userName"].DefaultValue = txtUserName.Text;
+                    registrationDataSource.InsertParameters["userAddress"].DefaultValue = txtUserAddress.Text;
+                    registrationDataSource.InsertParameters["userContact"].DefaultValue = txtMobile.Text;
+                    registrationDataSource.InsertParameters["userType"].DefaultValue = "Customer";
                     registrationDataSource.InsertParameters["password"].DefaultValue = txtPassword.Text;
+                   
                     registrationDataSource.Insert();
                 }
                 else {

@@ -69,13 +69,15 @@
   <ItemGroup>
     <Content Include="assets\CSS\master-styles.css" />
     <Content Include="assets\CSS\Styles.css" />
-    <Content Include="assets\img\perfil.jpg" />
+    <Content Include="assets\img\images.png" />
     <Content Include="assets\js\main.js" />
     <Content Include="Category.aspx" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registration\RegisterUser.aspx" />
     <Content Include="Test.aspx" />
+    <Content Include="User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +94,13 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Items.aspx.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Items.aspx.designer.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -121,6 +130,13 @@
     </Compile>
     <Compile Include="Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

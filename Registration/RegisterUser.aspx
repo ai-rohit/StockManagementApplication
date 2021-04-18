@@ -30,6 +30,17 @@
                      <asp:TextBox ID="txtUserName" runat="server" class="textInput form-control col-8"></asp:TextBox>
 
                  </div>
+                    
+                     <div class="form-group row justify-content-center">
+                      <label for="txtUserAddress" class="labels col-9">User Address</label>
+                     <asp:TextBox ID="txtUserAddress" runat="server" class="textInput form-control col-8"></asp:TextBox>
+
+                 </div>
+                     <div class="form-group row justify-content-center">
+                      <label for="txtMobile" class="labels col-9">Mobile Number</label>
+                     <asp:TextBox ID="txtMobile" runat="server" class="textInput form-control col-8"></asp:TextBox>
+
+                 </div>
                   <div class="form-group row justify-content-center">
                       <label for="txtPassword" class="labels col-9">Password</label>
                      <asp:TextBox ID="txtPassword" runat="server" class="textInput form-control col-8"></asp:TextBox>
@@ -58,17 +69,19 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <asp:SqlDataSource ID="registrationDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Users] WHERE [userId] = @userId" InsertCommand="INSERT INTO [Users] ([userId], [userName], [userEmail], [password], [userType], [joinedDate]) VALUES (@userId, @userName, @userEmail, @password, @userType, @joinedDate)" SelectCommand="SELECT * FROM [Users] WHERE ([userEmail] = @userEmail)" UpdateCommand="UPDATE [Users] SET [userName] = @userName, [userEmail] = @userEmail, [password] = @password, [userType] = @userType, [joinedDate] = @joinedDate WHERE [userId] = @userId">
+        <asp:SqlDataSource ID="registrationDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Users] WHERE [userId] = @userId" InsertCommand="INSERT INTO [Users] ([userName], [userEmail], [userAddress], [userContact], [password], [userType]
+            ) VALUES (@userName, @userEmail, @userAddress, @userContact, @password, @userType)" SelectCommand="SELECT * FROM [Users] WHERE ([userEmail] = @userEmail)" UpdateCommand="UPDATE [Users] SET [userName] = @userName, [userEmail] = @userEmail, [userAddress] = @userAddress, [userContact] = @userContact, [password] = @password, [userType] = @userType WHERE [userId] = @userId">
             <DeleteParameters>
                 <asp:Parameter Name="userId" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="userId" Type="Int32" />
                 <asp:Parameter Name="userName" Type="String" />
                 <asp:Parameter Name="userEmail" Type="String" />
+                <asp:Parameter Name="userAddress" Type="String" />
+                <asp:Parameter Name="userContact" Type="String" />
                 <asp:Parameter Name="password" Type="String" />
                 <asp:Parameter Name="userType" Type="String" />
-                <asp:Parameter Name="joinedDate" Type="DateTime" />
+                
             </InsertParameters>
             <SelectParameters>
                 <asp:ControlParameter ControlID="txtEmail" Name="userEmail" PropertyName="Text" Type="String" />
@@ -76,9 +89,11 @@
             <UpdateParameters>
                 <asp:Parameter Name="userName" Type="String" />
                 <asp:Parameter Name="userEmail" Type="String" />
+                <asp:Parameter Name="userAddress" Type="String" />
+                <asp:Parameter Name="userContact" Type="String" />
                 <asp:Parameter Name="password" Type="String" />
                 <asp:Parameter Name="userType" Type="String" />
-                <asp:Parameter Name="joinedDate" Type="DateTime" />
+                
                 <asp:Parameter Name="userId" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
