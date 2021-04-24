@@ -76,6 +76,7 @@
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Registration\RegisterUser.aspx" />
+    <Content Include="Sales.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Web.config" />
@@ -116,6 +117,13 @@
     </Compile>
     <Compile Include="Registration\RegisterUser.aspx.designer.cs">
       <DependentUpon>RegisterUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sales.aspx.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sales.aspx.designer.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>

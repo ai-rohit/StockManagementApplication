@@ -11,61 +11,70 @@ namespace StockManagementApplication
 {
 
 
-    public partial class Category
+    public partial class Sales
     {
 
         /// <summary>
-        /// txtCategoryName control.
+        /// dropDnItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategoryName;
+        protected global::System.Web.UI.WebControls.DropDownList dropDnItem;
 
         /// <summary>
-        /// txtCategoryDescription control.
+        /// txtQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCategoryDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
 
         /// <summary>
-        /// btnAddCategory control.
+        /// dropDnCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCategory;
+        protected global::System.Web.UI.WebControls.DropDownList dropDnCustomer;
 
         /// <summary>
-        /// GridView1 control.
+        /// txtLineTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox txtLineTotal;
 
         /// <summary>
-        /// categoryDataSource control.
+        /// itemDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource categoryDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource itemDataSource1;
 
         /// <summary>
-        /// categoryDataSource2 control.
+        /// itemDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource categoryDataSource2;
+        protected global::System.Web.UI.WebControls.SqlDataSource itemDataSource2;
+
+        /// <summary>
+        /// customerDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource customerDataSource1;
     }
 }

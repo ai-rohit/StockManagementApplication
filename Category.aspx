@@ -3,28 +3,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>This is category page</h1>
-    <div>
-        <asp:TextBox ID="txtCategoryId" runat="server"></asp:TextBox>
+    
+    <div class="row align-middle" style="align-self: center; display: flex; justify-content: center">
+    <div class ="align-middle row col-8" style="display:flex; flex-direction: column; width:50%;">
+    <div class="form-group row justify-content-start" style="display:flex">
+        <label for="txtCategoryName" class="labels col-9">Category Name</label>
+        <asp:TextBox ID="txtCategoryName" class="textInput form-control col-8" runat="server"></asp:TextBox>
     </div>
-    <div>
-        <asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox>
+   
+    <div class="form-group row justify-content-start" style="display:flex">
+        <label for="txtCategoryDescription" class="labels col-9">Category Description</label>
+        <asp:TextBox ID="txtCategoryDescription" class="textInput form-control col-8" runat="server"></asp:TextBox>
     </div>
-    <div>
-        <asp:TextBox ID="txtCategoryDescription" runat="server"></asp:TextBox>
+    <div class="form-group row"> 
+        <asp:Button ID="btnAddCategory" runat="server" OnClick="btnAddCategory_Click" class="btn btn-primary btn-block col-8" Text="Add Category" />  
     </div>
-    <div>
-        
-        <asp:Button ID="btnAddCategory" runat="server" OnClick="btnAddCategory_Click" Text="Add Category" />
-        
+      
     </div>
-<asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
-    <Columns>
-        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-        <asp:BoundField DataField="id" HeaderText="Category Id" ReadOnly="True" SortExpression="id" />
-        <asp:BoundField DataField="Name" HeaderText="Category Name" SortExpression="Name" />
-        <asp:BoundField DataField="Description" HeaderText="Category Description" SortExpression="Description" />
-    </Columns>
-</asp:GridView>
+        <div class ="align-middle row col-8" style="display:flex; flex-direction: column; width:50%; margin-top: 10px;">
+           <asp:GridView ID="GridView1" class="table table-striped" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
+            <Columns>
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="id" HeaderText="Category Id" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="Name" HeaderText="Category Name" SortExpression="Name" />
+                <asp:BoundField DataField="Description" HeaderText="Category Description" SortExpression="Description" />
+            </Columns>
+           </asp:GridView>
+        </div>
+        </div>
+       
+
 <asp:SqlDataSource ID="categoryDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Category] WHERE [id] = @id" InsertCommand="INSERT INTO [Category] ([id], [Name], [Description]) VALUES (@id, @Name, @Description)" SelectCommand="SELECT * FROM [Category]" UpdateCommand="UPDATE [Category] SET [Name] = @Name, [Description] = @Description WHERE [id] = @id">
     <DeleteParameters>
         <asp:Parameter Name="id" Type="Int32" />
@@ -40,7 +48,7 @@
         <asp:Parameter Name="id" Type="Int32" />
     </UpdateParameters>
 </asp:SqlDataSource>
-<asp:SqlDataSource ID="categoryDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Category] WHERE [id] = @id" InsertCommand="INSERT INTO [Category] ([id], [Name], [Description]) VALUES (@id, @Name, @Description)" SelectCommand="SELECT * FROM [Category] WHERE ([Name] = @Name)" UpdateCommand="UPDATE [Category] SET [Name] = @Name, [Description] = @Description WHERE [id] = @id">
+<asp:SqlDataSource ID="categoryDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Category] WHERE [id] = @id" InsertCommand="INSERT INTO [Category] ([id], [Name], [Description]) VALUES (@id, @Name, @Description)" SelectCommand="SELECT * FROM [Category] WHERE ([Name] = @Name)" UpdateCommand="UPDATE [Category] SET [Name] = @Name, [Description] = @Description WHERE [id] = @id" OnSelecting="categoryDataSource2_Selecting">
     <DeleteParameters>
         <asp:Parameter Name="id" Type="Int32" />
     </DeleteParameters>

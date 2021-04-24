@@ -42,6 +42,15 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.TextBox txtItemPrice;
 
         /// <summary>
+        /// dropCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropCategory;
+
+        /// <summary>
         /// txtPurchaseDate control.
         /// </summary>
         /// <remarks>
@@ -51,13 +60,13 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.TextBox txtPurchaseDate;
 
         /// <summary>
-        /// dropCategory control.
+        /// txtQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
 
         /// <summary>
         /// txtManufactured control.

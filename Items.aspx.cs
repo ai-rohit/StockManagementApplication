@@ -24,17 +24,19 @@ namespace StockManagementApplication
             {
                 Response.Write("Duplicate Entry Found");
             }
-            else {
+            else
+            {
                 itemDataSource2.InsertParameters["itemName"].DefaultValue = txtItemName.Text;
+                itemDataSource2.InsertParameters["itemDesc"].DefaultValue = txtItemDesc.Text;
+                itemDataSource2.InsertParameters["itemPrice"].DefaultValue = txtItemPrice.Text;
+                itemDataSource2.InsertParameters["purchaseDate"].DefaultValue = txtPurchaseDate.Text;
+                itemDataSource2.InsertParameters["category"].DefaultValue = dropCategory.SelectedItem.Value;
+                itemDataSource2.InsertParameters["manufacturedDate"].DefaultValue = txtManufactured.Text;
+                itemDataSource2.InsertParameters["expiryDate"].DefaultValue = txtExpiry.Text;
+                itemDataSource2.InsertParameters["quantity"].DefaultValue = txtQuantity.Text;
+                itemDataSource2.Insert();
             }
-            itemDataSource2.InsertParameters["itemDesc"].DefaultValue = txtItemDesc.Text;
-            itemDataSource2.InsertParameters["itemPrice"].DefaultValue = txtItemPrice.Text;
-            itemDataSource2.InsertParameters["purchaseDate"].DefaultValue = txtPurchaseDate.Text;
-            itemDataSource2.InsertParameters["category"].DefaultValue = dropCategory.SelectedItem.Value;
-            itemDataSource2.InsertParameters["manufacturedDate"].DefaultValue = txtManufactured.Text;
-            itemDataSource2.InsertParameters["expiryDate"].DefaultValue = txtExpiry.Text;
-            itemDataSource2.Insert();
-            
+
         }
     }
 }

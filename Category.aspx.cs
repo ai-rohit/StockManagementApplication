@@ -25,13 +25,18 @@ namespace StockManagementApplication
                 Response.Write("Duplicate Entry Found");
             }
             else {
-                categoryDataSource2.InsertParameters["id"].DefaultValue = txtCategoryId.Text;
+                /*categoryDataSource2.InsertParameters["id"].DefaultValue = txtCategoryId.Text;*/
                 categoryDataSource2.InsertParameters["Name"].DefaultValue = txtCategoryName.Text;
                 categoryDataSource2.InsertParameters["Description"].DefaultValue = txtCategoryDescription.Text;
 
                 categoryDataSource2.Insert();
                 Response.Write("Data Inserted");
             }
+        }
+
+        protected void categoryDataSource2_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
         }
     }
 }

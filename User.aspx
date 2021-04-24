@@ -13,7 +13,7 @@
             <asp:BoundField DataField="userContact" HeaderText="userContact" SortExpression="userContact" />
             <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
             <asp:BoundField DataField="userType" HeaderText="userType" SortExpression="userType" />
-            <asp:BoundField DataField="joinedDate" HeaderText="joinedDate" SortExpression="joinedDate" />
+            
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="userDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Users]"></asp:SqlDataSource>
