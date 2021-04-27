@@ -24,7 +24,9 @@ namespace StockManagementApplication
 
             if (authenticated)
             {
+                Session["UserEmail"] = txtEmail.Text.ToString();
                 FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
+                
             }
             else {
                 errorLabel.Visible = true;

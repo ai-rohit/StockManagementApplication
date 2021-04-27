@@ -45,7 +45,7 @@
         <asp:TextBox type="Date" CssClass="col-9 textInput form-control" ID="txtExpiry" runat="server"></asp:TextBox>
     </div>
     <div class="col-12 form-group row">
-        <asp:Button ID="btnAddItems" style="margin-left: 25px;" runat="server" CssClass="col-10 btn btn-primary btn-block form-control" OnClick="btnAddItems_Click" Text="Add Items" />
+        <asp:Button ID="btnAddItems" style="margin-left: 25px; top: 0px; left: 0px;" runat="server" CssClass="col-10 btn btn-primary btn-block form-control" OnClick="btnAddItems_Click" Text="Add Items" />
         <asp:SqlDataSource ID="itemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Category]"></asp:SqlDataSource>
 
     </div>
@@ -53,7 +53,7 @@
        
     </div>
      <div class="col-10 justify-content-center">
-             <asp:GridView ID="GridView1" CssClass="table table-striped"  runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
+             <asp:GridView ID="grdItem" CssClass="table table-striped"  runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                 <asp:BoundField DataField="itemId" HeaderText="Item Id" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
