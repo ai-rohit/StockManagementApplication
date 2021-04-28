@@ -15,28 +15,30 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body id="body-pd">
+<body id="body-pd" class="body-pd">
     <form id="form1" runat="server">
-        <header class="header" id="header">
+        <header class="header body-pd" id="header">
             <div class="header__toggle">
                 <i class='bx bx-menu' id="header-toggle"></i>
             </div>
-
-            <div class="header__img">
+            <div style="display:flex; justify-content:flex-end; width: 90%">
+                 <asp:Label ID="lblUser"  runat="server" Text="User"></asp:Label>
+            </div>
+            <div class="header__img" style="display:flex">
                 <img src="assets/img/images.png" alt="">
             </div>
         </header>
 
-        <div class="l-navbar" id="nav-bar">
+        <div class="l-navbar show" id="nav-bar" style="display:flex; flex-grow: 1;">
             <nav class="nav">
                 <div>
-                    <a href="#" class="nav__logo">
+                    <a href="Dashboard.aspx" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
                         <span class="nav__logo-name">Your Stock Manager</span>
                     </a>
 
                     <div class="nav__list">
-                        <a href="#" class="nav__link active">
+                        <a href="Dashboard.aspx" class="nav__link">
                         <i class='bx bx-grid-alt nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
@@ -56,7 +58,7 @@
                             <span class="nav__name">Items</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="Sales.aspx" class="nav__link">
                             <i class='bx bx-folder nav__icon' ></i>
                             <span class="nav__name">Sales</span>
                         </a>

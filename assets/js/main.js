@@ -1,5 +1,7 @@
-﻿/*===== SHOW NAVBAR  =====*/ 
-const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+﻿/*===== SHOW NAVBAR  =====*/
+console.log("Hello");
+const showNavbar = (toggleId, navId, bodyId, headerId) => {
+    console.log("Hello");
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId),
     bodypd = document.getElementById(bodyId),
@@ -11,7 +13,7 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>{
             // show navbar
             nav.classList.toggle('show')
             // change icon
-            toggle.classList.toggle('bx-x')
+           /* toggle.classList.toggle('bx-menu')*/
             // add padding to body
             bodypd.classList.toggle('body-pd')
             // add padding to header
@@ -23,12 +25,27 @@ const showNavbar = (toggleId, navId, bodyId, headerId) =>{
 showNavbar('header-toggle','nav-bar','body-pd','header')
 
 /*===== LINK ACTIVE  =====*/ 
-const linkColor = document.querySelectorAll('.nav__link')
+/*const linkColor = document.querySelectorAll('.nav__link')
 
 function colorLink(){
     if(linkColor){
         linkColor.forEach(l=> l.classList.remove('active'))
         this.classList.add('active')
+        console.log("Abc");
+    }
+    console.log("Abc");
+}
+
+linkColor.forEach(l=> l.addEventListener('click', colorLink))*/
+
+function setActive() {
+    var active = document.querySelector('.nav__list').getElementsByTagName('a');
+    console.log(active);
+    for (i = 0; i < active.length; i++) {
+        console.log(i);
+        if (document.location.href.indexOf(active[i].href) >= 0) {
+            active[i].classList.add("active");
+        }
     }
 }
-linkColor.forEach(l=> l.addEventListener('click', colorLink))
+window.onload = setActive();

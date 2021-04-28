@@ -44,6 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -69,9 +70,15 @@
   <ItemGroup>
     <Content Include="assets\CSS\master-styles.css" />
     <Content Include="assets\CSS\Styles.css" />
+    <Content Include="assets\img\cancel.png" />
+    <Content Include="assets\img\confirm.png" />
+    <Content Include="assets\img\delete.png" />
+    <Content Include="assets\img\edit.png" />
     <Content Include="assets\img\images.png" />
+    <Content Include="assets\img\items-chart.png" />
     <Content Include="assets\js\main.js" />
     <Content Include="Category.aspx" />
+    <Content Include="CustomerPurchase.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
@@ -88,6 +95,13 @@
     </Compile>
     <Compile Include="Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerPurchase.aspx.cs">
+      <DependentUpon>CustomerPurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPurchase.aspx.designer.cs">
+      <DependentUpon>CustomerPurchase.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

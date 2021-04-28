@@ -114,6 +114,15 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.Button btnAddCustomer;
 
         /// <summary>
+        /// msgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label msgLabel;
+
+        /// <summary>
         /// usersGrid control.
         /// </summary>
         /// <remarks>
@@ -148,5 +157,14 @@ namespace StockManagementApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource customerDataSource;
+
+        /// <summary>
+        /// filterCustomerSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource filterCustomerSource;
     }
 }

@@ -26,8 +26,11 @@
             <asp:Label ID="labelMemberType" CssClass="col-9" runat="server" Text="MemberType"></asp:Label>
             <asp:TextBox ID="txtMemberType" CssClass="textInput form-control col-9" runat="server"></asp:TextBox>
              
-            <asp:Button ID="btnAddCustomer" CssClass="btn btn-primary btn-block col-9" style="margin-top:20px" runat="server" Text="Add Customer" />
+            <asp:Button ID="btnAddCustomer" CssClass="btn btn-primary btn-block col-9" style="margin-top:20px" runat="server" Text="Add Customer" OnClick="btnAddCustomer_Click" />
         
+        </div>
+        <div>
+             <asp:Label ID="msgLabel" runat="server" Text="ErrorMsg" Visible="false" ForeColor="Red"></asp:Label>
         </div>
        
     </div>
@@ -79,6 +82,30 @@
                 <asp:Parameter Name="customerAddress" Type="String" />
                 <asp:Parameter Name="customerContact" Type="String" />
                 <asp:Parameter Name="memberType" Type="String" />
+                <asp:Parameter Name="customerId" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="filterCustomerSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Customers] WHERE [customerId] = @customerId" InsertCommand="INSERT INTO [Customers] ([customerName], [customerEmail], [customerAddress], [customerContact], [memberType]) VALUES (@customerName, @customerEmail, @customerAddress, @customerContact, @memberType)" OnSelecting="filterCustomerSource_Selecting" SelectCommand="SELECT * FROM [Customers] WHERE (([customerEmail] = @userEmail) OR ([customerName] = @userName))" UpdateCommand="UPDATE [Customers] SET [customerName] = @customerName, [customerEmail] = @customerEmail, [customerAddress] = @customerAddress, [customerContact] = @customerContact, [memberType] = @memberType WHERE [customerId] = @customerId">
+            <DeleteParameters>
+                <asp:Parameter Name="userId" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="customerName" Type="String" />
+                <asp:Parameter Name="customerEmail" Type="String" />
+                <asp:Parameter Name="customerAddress" Type="String" />
+                <asp:Parameter Name="customerContact" Type="String" />
+                <asp:Parameter Name="memberType" Type="String" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:ControlParameter ControlID="txtCustomerEmail" Name="userEmail" PropertyName="Text" Type="String" />
+                <asp:ControlParameter ControlID="txtCustomerName" Name="userName" PropertyName="Text" Type="String" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="customerName" Type="String" />
+                <asp:Parameter Name="customerEmail" Type="String" />
+                <asp:Parameter Name="customerAddress" Type="String" />
+                <asp:Parameter Name="customerContact" Type="String" />
+                <asp:Parameter Name="memebrType" Type="String" />
                 <asp:Parameter Name="customerId" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>

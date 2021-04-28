@@ -16,7 +16,7 @@ namespace StockManagementApplication
             if (!Page.IsPostBack)
             {
                
-                if (itemData.Table.Rows.Count > 0)
+              /*  if (itemData.Table.Rows.Count > 0)
                 {
                     string Data = "";
                     foreach (DataRowView drvSql in itemData)
@@ -25,9 +25,10 @@ namespace StockManagementApplication
                         Data = Data + drvSql["itemName"].ToString();
 
                     }
-                    string message = $"alert('Some items are low on stocks! They are: {Data}')";
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", message , true);
-                }
+                    string title = "Low Stock";
+                    string message = $"Some items are low on stocks! They are: {Data}";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + message + "');", true);
+                }*/
             }
 
             if (Session["UserEmail"] != null && Session["UserEmail"].ToString() != "")

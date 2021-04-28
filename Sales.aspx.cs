@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
+
 namespace StockManagementApplication
 {
     public partial class Sales : System.Web.UI.Page
@@ -129,7 +132,7 @@ namespace StockManagementApplication
         {
             int totalAmount = 0;
             DataTable cartTable = (DataTable)Session["Cart"];
-            lblQuantity.Text = cartTable.Rows.Count.ToString();
+            /*lblQuantity.Text = cartTable.Rows.Count.ToString();*/
             foreach (DataRow dr in cartTable.Rows) {
                 if (dr["ItemId"].ToString() == "") {
                     msgLabel.Text = "Cart is empty to make purchase";
@@ -141,23 +144,43 @@ namespace StockManagementApplication
                   
                 }
             }
-                     msgLabel.Visible = false;
-                    lblQuantity.Text = "Something in cart";
-                    salesDataSource.InsertParameters["customerId"].DefaultValue = lblCustomer.Text;
-                    salesDataSource.InsertParameters["billingDate"].DefaultValue = txtBillingDate.Text;
-                    salesDataSource.InsertParameters["totalAmount"].DefaultValue = totalAmount.ToString();
+            try
+            {
+                msgLabel.Visible = false;
+                String strConnString = ConfigurationManager.ConnectionStrings["StockConnectionString"].ConnectionString;
+                SqlConnection conn = new SqlConnection(strConnString);
+                String query = "Insert into Sales values (@customerId, @billingDate, @totalAmount); Select SCOPE_IDENTITY();";
 
-                    salesDataSource.Insert();
-                    lblQuantity.Text = "Data Inserted Successfully";
-                    
-                    clearAndInitiateCart();
-            
-           /* foreach (DataRow dr in cartTable.Rows) {
-               
-                totalAmount = totalAmount +Int32.Parse( dr["LineTotal"].ToString());
-              
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@customerId", lblCustomer.Text);
+                cmd.Parameters.AddWithValue("@billingDate", txtBillingDate.Text);
+                cmd.Parameters.AddWithValue("@totalAmount", totalAmount.ToString());
+
+                conn.Open();
+                /*cmd.ExecuteNonQuery();*/
+                var salesId = cmd.ExecuteScalar();
+                conn.Close();
+                Console.WriteLine(salesId);
+                /* lblCustomer.Text = salesId.ToString();*/
+
+                DataView orderData = (DataView)OrderDetailsDataSource.Select(DataSourceSelectArguments.Empty);
+                foreach (DataRow dr in cartTable.Rows)
+                {
+                    OrderDetailsDataSource.InsertParameters["itemId"].DefaultValue = dr["ItemId"].ToString();
+                    OrderDetailsDataSource.InsertParameters["quantity"].DefaultValue = dr["Quantity"].ToString();
+                    OrderDetailsDataSource.InsertParameters["lineTotal"].DefaultValue = dr["LineTotal"].ToString();
+                    OrderDetailsDataSource.InsertParameters["salesId"].DefaultValue =salesId.ToString();
+
+                    OrderDetailsDataSource.Insert();
+                }
+                lblCustomer.Text = "Customer Id";
+                clearAndInitiateCart();
+
             }
-           */
+            catch (Exception ex) {
+                Console.WriteLine("Something went wrong");
+            }
+                  
         }
         public void clearAndInitiateCart() {
             Session.Clear();

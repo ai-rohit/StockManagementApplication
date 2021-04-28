@@ -132,15 +132,6 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.TextBox txtBillingDate;
 
         /// <summary>
-        /// msgLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label msgLabel;
-
-        /// <summary>
         /// btnPurchase control.
         /// </summary>
         /// <remarks>
@@ -150,6 +141,15 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.Button btnPurchase;
 
         /// <summary>
+        /// msgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label msgLabel;
+
+        /// <summary>
         /// salesDataSource control.
         /// </summary>
         /// <remarks>
@@ -157,6 +157,15 @@ namespace StockManagementApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource salesDataSource;
+
+        /// <summary>
+        /// OrderDetailsDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource OrderDetailsDataSource;
 
         /// <summary>
         /// itemDataSource1 control.

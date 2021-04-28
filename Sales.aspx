@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Make Sale</h2>
+    
     <div class="row justify-content-center">
-        <div class="card col-10">
+        <div class="card col-10" style=" box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 30px 0px 30px 0px;">
             <h4 class="card-title mt-4">Select Items To Purchase</h4>
             <hr />
         <div class="row col-9 align-self-center justify-content-lg-between" style="margin-right: 35px;">
@@ -37,17 +37,20 @@
             <asp:Label ID="lblCustomer" runat="server" Text="Customer Id"></asp:Label>
         
         </div>
-        <div class="card col-10">
-        <div>
-            <asp:GridView ID="grdCart" runat="server" OnRowDataBound="grdCart_RowDataBound" OnSelectedIndexChanged="grdCart_SelectedIndexChanged"></asp:GridView>
+        <div class="card col-10" style=" box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-bottom: 30px;">
+            <h4 class="card-title mt-4"> Items Cart</h4>
+            <hr />
+        <div  class="form-group row justify-content-center">
+            <asp:GridView ID="grdCart" runat="server" CssClass="table col-12" OnRowDataBound="grdCart_RowDataBound" OnSelectedIndexChanged="grdCart_SelectedIndexChanged"></asp:GridView>
         </div>
-        <div>
+        <div class="form-group row justify-content-center">
+            <label id="lblBillingDate" for="txtBillingDate" class="labels col-9">Select Billing Date</label>
+            <asp:TextBox ID="txtBillingDate" class="textInput form-control col-9" type="Date" runat="server"></asp:TextBox>
             
-            <asp:TextBox ID="txtBillingDate" type="Date" runat="server"></asp:TextBox>
-            <asp:Label ID="msgLabel" runat="server" Text="Error Message" ForeColor="Red" Visible="False"></asp:Label>
+             <asp:Button ID="btnPurchase" CssClass="btn btn-block btn-primary col-9 mt-4" runat="server" Text="Make Purchase" OnClick="btnPurchase_Click" />
         </div>
         <div>
-            <asp:Button ID="btnPurchase" runat="server" Text="Make Purchase" OnClick="btnPurchase_Click" />
+           <asp:Label ID="msgLabel" runat="server" Text="Error Message" ForeColor="Red" Visible="False"></asp:Label>
             <asp:SqlDataSource ID="salesDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Sales] WHERE [salesId] = @salesId" InsertCommand="INSERT INTO [Sales] ([customerId], [billingDate], [totalAmount]) VALUES (@customerId, @billingDate, @totalAmount)" SelectCommand="SELECT * FROM [Sales]" UpdateCommand="UPDATE [Sales] SET [customerId] = @customerId, [billingDate] = @billingDate, [totalAmount] = @totalAmount WHERE [salesId] = @salesId">
                 <DeleteParameters>
                     <asp:Parameter Name="salesId" Type="Int32" />
@@ -64,6 +67,24 @@
                     <asp:Parameter Name="salesId" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+            <asp:SqlDataSource ID="OrderDetailsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Order_Details] WHERE [orderId] = @orderId" InsertCommand="INSERT INTO [Order_Details] ([itemId], [quantity], [salesId], [lineTotal]) VALUES (@itemId, @quantity, @salesId, @lineTotal)" SelectCommand="SELECT * FROM [Order_Details]" UpdateCommand="UPDATE [Order_Details] SET [itemId] = @itemId, [quantity] = @quantity, [salesId] = @salesId, [lineTotal] = @lineTotal WHERE [orderId] = @orderId">
+                <DeleteParameters>
+                    <asp:Parameter Name="orderId" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="itemId" Type="Int32" />
+                    <asp:Parameter Name="quantity" Type="Int32" />
+                    <asp:Parameter Name="salesId" Type="Int32" />
+                    <asp:Parameter Name="lineTotal" Type="Decimal" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="itemId" Type="Int32" />
+                    <asp:Parameter Name="quantity" Type="Int32" />
+                    <asp:Parameter Name="salesId" Type="Int32" />
+                    <asp:Parameter Name="lineTotal" Type="Decimal" />
+                    <asp:Parameter Name="orderId" Type="Int32" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
         </div>
        </div>
        <div>
@@ -76,7 +97,5 @@
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="customerDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [customerId], [customerName] FROM [Customers]"></asp:SqlDataSource>
        </div>
-       
-
     </div>
 </asp:Content>

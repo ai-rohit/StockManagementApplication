@@ -2,28 +2,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>This is category page</h1>
-    
-    <div class="row align-middle" style="align-self: center; display: flex; justify-content: center">
-    <div class ="align-middle row col-8" style="display:flex; flex-direction: column; width:50%;">
-    <div class="form-group row justify-content-start" style="display:flex">
+   
+    <div class="row align-middle" style="align-self: center; display: flex; justify-content: center">  
+         <h1 style="margin-top:20px" class="col-12">Category<hr /></h1>
+         
+    <div class ="card align-middle row col-8" style="display:flex; flex-direction: column; width:50%; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" >
+        <h4 class="card-title mt-4">Add new catrgories here!</h4>
+         <hr />
+        <div class="form-group row justify-content-center" style="display:flex">
         <label for="txtCategoryName" class="labels col-9">Category Name</label>
-        <asp:TextBox ID="txtCategoryName" class="textInput form-control col-8" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtCategoryName" class="textInput form-control col-9" runat="server"></asp:TextBox>
     </div>
    
-    <div class="form-group row justify-content-start" style="display:flex">
+    <div class="form-group row justify-content-center" style="display:flex">
         <label for="txtCategoryDescription" class="labels col-9">Category Description</label>
-        <asp:TextBox ID="txtCategoryDescription" class="textInput form-control col-8" runat="server"></asp:TextBox>
-    </div>
-    <div class="form-group row"> 
-        <asp:Button ID="btnAddCategory" runat="server" OnClick="btnAddCategory_Click" class="btn btn-primary btn-block col-8" Text="Add Category" />  
+        <asp:TextBox ID="txtCategoryDescription" class="textInput form-control col-9" runat="server"></asp:TextBox>
+        <asp:Button ID="btnAddCategory" runat="server" OnClick="btnAddCategory_Click" class="btn btn-primary btn-block col-9 mt-4" Text="Add Category" />  
     </div>
       
     </div>
-        <div class ="align-middle row col-8" style="display:flex; flex-direction: column; width:50%; margin-top: 10px;">
-           <asp:GridView ID="GridView1" class="table table-striped" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
+        <div class =" justify-content-center card row col-8 mt-4" style="display:flex; flex-direction: column; width:50%; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <h4 class="card-title mt-4">Available Categories</h4>
+            <hr />
+           <asp:GridView ID="grdCategory" class="table table-striped" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
+                    ShowEditButton="True" UpdateImageUrl="~/assets/img/confirm.png" DeleteImageUrl="~/assets/img/delete.png" ShowDeleteButton="True"/>
                 <asp:BoundField DataField="id" HeaderText="Category Id" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="Name" HeaderText="Category Name" SortExpression="Name" />
                 <asp:BoundField DataField="Description" HeaderText="Category Description" SortExpression="Description" />

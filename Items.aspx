@@ -49,14 +49,14 @@
         <asp:SqlDataSource ID="itemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Category]"></asp:SqlDataSource>
 
     </div>
-
-       
-    </div>
-     <div class="col-10 justify-content-center">
-             <asp:GridView ID="grdItem" CssClass="table table-striped"  runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
+        <div class="col-12 card mb-4 mt-3" style="margin-right:140px; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+             <asp:GridView ID="grdItem" CssClass="table table-striped mt-4" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                 <asp:CommandField ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
+                    ShowEditButton="True" UpdateImageUrl="~/assets/img/confirm.png" DeleteImageUrl="~/assets/img/delete.png" ShowDeleteButton="True"/>
+                 <asp:CommandField ControlStyle-CssClass="btn btn-primary btn-sm" ShowSelectButton="True" />
                 <asp:BoundField DataField="itemId" HeaderText="Item Id" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
+          
                 <asp:BoundField DataField="itemName" HeaderText="Item Name" SortExpression="itemName" />
                 <asp:BoundField DataField="itemDesc" HeaderText="Item Description" SortExpression="itemDesc" />
                 <asp:BoundField DataField="itemPrice" HeaderText="Item Price" SortExpression="itemPrice" />
@@ -69,7 +69,8 @@
         </asp:GridView>
         </div>
     
-    <div>
+    </div>
+         <div>
 
        
         <asp:SqlDataSource ID="itemDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Items]" DeleteCommand="DELETE FROM [Items] WHERE [itemId] = @itemId" InsertCommand="INSERT INTO [Items] ([itemName], [itemDesc], [itemPrice], [purchaseDate], [category], [manufacturedDate], [expiryDate], [quantity]) VALUES (@itemName, @itemDesc, @itemPrice, @purchaseDate, @category, @manufacturedDate, @expiryDate, @quantity)" UpdateCommand="UPDATE [Items] SET [itemName] = @itemName, [itemDesc] = @itemDesc, [itemPrice] = @itemPrice, [purchaseDate] = @purchaseDate, [category] = @category, [manufacturedDate] = @manufacturedDate, [expiryDate] = @expiryDate, [quantity] = @quantity WHERE [itemId] = @itemId">
