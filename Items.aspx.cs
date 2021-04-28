@@ -41,7 +41,7 @@ namespace StockManagementApplication
 
         protected void btnOldStock_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/CustomerPurchase.aspx");
+            Response.Redirect("~/OldStock.aspx");
         }
     }
 }

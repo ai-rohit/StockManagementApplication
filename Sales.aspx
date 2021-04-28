@@ -54,7 +54,7 @@
             </asp:GridView>
             <div class="form-group row justify-content-end">
                 <asp:Label ID="total" Font-Bold="true" CssClass="mr-5" Font-Size="Larger" runat="server" Text="Total"></asp:Label>
-                <asp:Label ID="lblTotalValue" CssClass="col-1 mr-5" Font-Size="Large" runat="server" Text="0"></asp:Label>
+                <asp:Label ID="lblTotalValue" CssClass="col-2 mr-2" Font-Size="Large" runat="server" Text="0"></asp:Label>
             </div>
         
         <div class="form-group row justify-content-center">

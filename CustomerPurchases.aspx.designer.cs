@@ -11,43 +11,43 @@ namespace StockManagementApplication
 {
 
 
-    public partial class Dashboard
+    public partial class CustomerPurchases
     {
 
         /// <summary>
-        /// lblUserEmail control.
+        /// customerDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserEmail;
+        protected global::System.Web.UI.WebControls.SqlDataSource customerDataSource;
 
         /// <summary>
-        /// grdInactiveUsers control.
+        /// drpDownCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdInactiveUsers;
+        protected global::System.Web.UI.WebControls.DropDownList drpDownCustomer;
 
         /// <summary>
-        /// inactiveUserDataSource control.
+        /// grdPurchases control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource inactiveUserDataSource;
+        protected global::System.Web.UI.WebControls.GridView grdPurchases;
 
         /// <summary>
-        /// itemStockDataSource control.
+        /// recentPurchaseDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource itemStockDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource recentPurchaseDataSource;
     }
 }

@@ -78,7 +78,8 @@
     <Content Include="assets\img\items-chart.png" />
     <Content Include="assets\js\main.js" />
     <Content Include="Category.aspx" />
-    <Content Include="CustomerPurchase.aspx" />
+    <Content Include="CustomerPurchases.aspx" />
+    <Content Include="OldStock.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
@@ -95,12 +96,19 @@
     <Compile Include="Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerPurchase.aspx.cs">
-      <DependentUpon>CustomerPurchase.aspx</DependentUpon>
+    <Compile Include="CustomerPurchases.aspx.cs">
+      <DependentUpon>CustomerPurchases.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CustomerPurchase.aspx.designer.cs">
-      <DependentUpon>CustomerPurchase.aspx</DependentUpon>
+    <Compile Include="CustomerPurchases.aspx.designer.cs">
+      <DependentUpon>CustomerPurchases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OldStock.aspx.cs">
+      <DependentUpon>OldStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OldStock.aspx.designer.cs">
+      <DependentUpon>OldStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

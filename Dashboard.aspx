@@ -45,9 +45,21 @@
              
         </div>
         <div class="card col-11 justify-content-center mt-4">
-
+            <h5 class="card-title">Inactive Users (No Purchase in Last 31 days)<hr /></h5>
+            <asp:GridView ID="grdInactiveUsers" runat="server" AutoGenerateColumns="False" DataKeyNames="customerId" DataSourceID="inactiveUserDataSource">
+                <Columns>
+                    <asp:BoundField DataField="customerId" HeaderText="customerId" InsertVisible="False" ReadOnly="True" SortExpression="customerId" />
+                    <asp:BoundField DataField="customerName" HeaderText="customerName" SortExpression="customerName" />
+                    <asp:BoundField DataField="customerEmail" HeaderText="customerEmail" SortExpression="customerEmail" />
+                    <asp:BoundField DataField="customerAddress" HeaderText="customerAddress" SortExpression="customerAddress" />
+                    <asp:BoundField DataField="customerContact" HeaderText="customerContact" SortExpression="customerContact" />
+                    <asp:BoundField DataField="memberType" HeaderText="memberType" SortExpression="memberType" />
+                </Columns>
+            
+            </asp:GridView>
+            <asp:SqlDataSource ID="inactiveUserDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select * from Customers where customerId not in (Select customerId from sales where DateDiff(dd, billingDate, Convert(date, getDate()))&lt;=31)"></asp:SqlDataSource>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select * from Items where quantity&lt;=10"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="itemStockDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select * from Items where quantity&lt;=10"></asp:SqlDataSource>
     </div>
     <div id="MyPopup" class="modal fade" role="dialog">
         <div class="modal-dialog modal-dialog-centered">

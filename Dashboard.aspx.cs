@@ -12,7 +12,7 @@ namespace StockManagementApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataView itemData = (DataView)SqlDataSource1.Select(DataSourceSelectArguments.Empty);
+            DataView itemData = (DataView)itemStockDataSource.Select(DataSourceSelectArguments.Empty);
             if (!Page.IsPostBack)
             {
                

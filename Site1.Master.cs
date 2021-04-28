@@ -11,7 +11,7 @@ namespace StockManagementApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserEmail"] == null || Session["UserEmail"] == "")
+            if (Session["UserEmail"] == null || Session["UserEmail"].ToString() == "")
             {
                 lblUser.Text = "Anonymous User";
             }
