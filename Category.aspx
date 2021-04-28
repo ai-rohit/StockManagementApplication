@@ -26,11 +26,9 @@
             <hr />
            <asp:GridView ID="grdCategory" class="table table-striped" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
             <Columns>
-                 <asp:CommandField ControlStyle-CssClass="btn btn-primary" ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
-                    ShowEditButton="True" UpdateImageUrl="~/assets/img/confirm.png" DeleteImageUrl="~/assets/img/delete.png" ShowDeleteButton="True"/>
-                <asp:BoundField DataField="id" HeaderText="Category Id" ReadOnly="True" SortExpression="id" />
-                <asp:BoundField DataField="Name" HeaderText="Category Name" SortExpression="Name" />
-                <asp:BoundField DataField="Description" HeaderText="Category Description" SortExpression="Description" />
+                <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" InsertVisible="False" />
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
             </Columns>
            </asp:GridView>
         </div>
@@ -52,12 +50,11 @@
         <asp:Parameter Name="id" Type="Int32" />
     </UpdateParameters>
 </asp:SqlDataSource>
-<asp:SqlDataSource ID="categoryDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Category] WHERE [id] = @id" InsertCommand="INSERT INTO [Category] ([id], [Name], [Description]) VALUES (@id, @Name, @Description)" SelectCommand="SELECT * FROM [Category] WHERE ([Name] = @Name)" UpdateCommand="UPDATE [Category] SET [Name] = @Name, [Description] = @Description WHERE [id] = @id" OnSelecting="categoryDataSource2_Selecting">
+<asp:SqlDataSource ID="categoryDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Category] WHERE [id] = @id" InsertCommand="INSERT INTO [Category] ([Name], [Description]) VALUES (@Name, @Description)" SelectCommand="SELECT * FROM [Category] WHERE ([Name] = @Name)" UpdateCommand="UPDATE [Category] SET [Name] = @Name, [Description] = @Description WHERE [id] = @id" OnSelecting="categoryDataSource2_Selecting">
     <DeleteParameters>
         <asp:Parameter Name="id" Type="Int32" />
     </DeleteParameters>
     <InsertParameters>
-        <asp:Parameter Name="id" Type="Int32" />
         <asp:Parameter Name="Name" Type="String" />
         <asp:Parameter Name="Description" Type="String" />
     </InsertParameters>

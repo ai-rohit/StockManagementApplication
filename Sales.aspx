@@ -2,7 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+    <div>
+        <asp:Label ID="lblSelectedItem" runat="server" Text="SelectedItem" Visible="false"></asp:Label>
+        <asp:Label ID="lblItemCategory" runat="server" Text="Category" Visible="false"></asp:Label>
+        <asp:Label ID="lblItemPrice" runat="server" Text="ItemPrice" Visible="false"></asp:Label>
+    </div>
     <div class="row justify-content-center">
         <div class="card col-10" style=" box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 30px 0px 30px 0px;">
             <h4 class="card-title mt-4">Select Items To Purchase</h4>
@@ -31,18 +35,28 @@
             <asp:Label ID="lblLineTotal" CssClass="labels col-9" runat="server" Text="Total Price for Item"></asp:Label>
              <asp:TextBox ID="txtLineTotal"  class="textInput form-control col-9" runat="server" AutoPostBack="True"></asp:TextBox>
              <asp:Button ID="btnAddToCart" CssClass="btn btn-block btn-primary col-9 mt-4" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
+            <asp:Label ID="lblCartMessage" CssClass="labels col-9 mt-2" ForeColor="Red" runat="server" Text="ErrorCart" Visible="false"></asp:Label>
         </div>
        
       
-            <asp:Label ID="lblCustomer" runat="server" Text="Customer Id"></asp:Label>
+            <asp:Label ID="lblCustomer" runat="server" Text="Customer Id" Visible="False"></asp:Label>
         
         </div>
         <div class="card col-10" style=" box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-bottom: 30px;">
             <h4 class="card-title mt-4"> Items Cart</h4>
             <hr />
-        <div  class="form-group row justify-content-center">
-            <asp:GridView ID="grdCart" runat="server" CssClass="table col-12" OnRowDataBound="grdCart_RowDataBound" OnSelectedIndexChanged="grdCart_SelectedIndexChanged"></asp:GridView>
-        </div>
+        
+            <asp:GridView ID="grdCart" runat="server" CssClass="table table-bordered table-striped col-12" OnRowDataBound="grdCart_RowDataBound" OnSelectedIndexChanged="grdCart_SelectedIndexChanged" OnRowCommand="grdCart_RowCommand">
+
+                <Columns>
+                    <asp:ButtonField CommandName="RemoveCart" ControlStyle-CssClass="btn btn-danger" Text="Remove" ItemStyle-HorizontalAlign="Center"/>
+                </Columns>
+            </asp:GridView>
+            <div class="form-group row justify-content-end">
+                <asp:Label ID="total" Font-Bold="true" CssClass="mr-5" Font-Size="Larger" runat="server" Text="Total"></asp:Label>
+                <asp:Label ID="lblTotalValue" CssClass="col-1 mr-5" Font-Size="Large" runat="server" Text="0"></asp:Label>
+            </div>
+        
         <div class="form-group row justify-content-center">
             <label id="lblBillingDate" for="txtBillingDate" class="labels col-9">Select Billing Date</label>
             <asp:TextBox ID="txtBillingDate" class="textInput form-control col-9" type="Date" runat="server"></asp:TextBox>
@@ -90,7 +104,7 @@
        <div>
             
             <asp:SqlDataSource ID="itemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [itemId], [itemName], [itemPrice], [quantity] FROM [Items]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="itemDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Items] WHERE ([itemId] = @itemId)">
+            <asp:SqlDataSource ID="itemDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Items] join [Category] on Items.category = Category.id WHERE ([itemId] = @itemId)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="dropDnItem" Name="itemId" PropertyName="SelectedValue" Type="Int32" />
                 </SelectParameters>

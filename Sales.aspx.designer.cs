@@ -15,6 +15,33 @@ namespace StockManagementApplication
     {
 
         /// <summary>
+        /// lblSelectedItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectedItem;
+
+        /// <summary>
+        /// lblItemCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItemCategory;
+
+        /// <summary>
+        /// lblItemPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblItemPrice;
+
+        /// <summary>
         /// lblItemName control.
         /// </summary>
         /// <remarks>
@@ -105,6 +132,15 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.Button btnAddToCart;
 
         /// <summary>
+        /// lblCartMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCartMessage;
+
+        /// <summary>
         /// lblCustomer control.
         /// </summary>
         /// <remarks>
@@ -121,6 +157,24 @@ namespace StockManagementApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCart;
+
+        /// <summary>
+        /// total control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label total;
+
+        /// <summary>
+        /// lblTotalValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalValue;
 
         /// <summary>
         /// txtBillingDate control.

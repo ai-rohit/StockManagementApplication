@@ -40,5 +40,7 @@ namespace StockManagementApplication
                 lblUserEmail.Text = "Anonymous User";
             }
         }
+
+       
     }
 }

@@ -84,7 +84,6 @@
     <Content Include="Login.aspx" />
     <Content Include="Registration\RegisterUser.aspx" />
     <Content Include="Sales.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -145,13 +144,6 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>

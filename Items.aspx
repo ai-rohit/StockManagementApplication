@@ -49,14 +49,14 @@
         <asp:SqlDataSource ID="itemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Category]"></asp:SqlDataSource>
 
     </div>
-        <div class="col-12 card mb-4 mt-3" style="margin-right:140px; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-             <asp:GridView ID="grdItem" CssClass="table table-striped mt-4" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
+        
+        </div>
+     <asp:GridView ID="grdItem" CssClass="table table-striped table-responsive table-bordered mt-4 mr-3" style="margin-right:10px" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
             <Columns>
                  <asp:CommandField ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
                     ShowEditButton="True" UpdateImageUrl="~/assets/img/confirm.png" DeleteImageUrl="~/assets/img/delete.png" ShowDeleteButton="True"/>
-                 <asp:CommandField ControlStyle-CssClass="btn btn-primary btn-sm" ShowSelectButton="True" />
+                 <asp:CommandField ControlStyle-CssClass="btn btn-primary btn-sm" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowSelectButton="True" />
                 <asp:BoundField DataField="itemId" HeaderText="Item Id" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
-          
                 <asp:BoundField DataField="itemName" HeaderText="Item Name" SortExpression="itemName" />
                 <asp:BoundField DataField="itemDesc" HeaderText="Item Description" SortExpression="itemDesc" />
                 <asp:BoundField DataField="itemPrice" HeaderText="Item Price" SortExpression="itemPrice" />
@@ -67,9 +67,7 @@
                 <asp:BoundField DataField="quantity" HeaderText="Quantity" SortExpression="quantity" />
             </Columns>
         </asp:GridView>
-        </div>
-    
-    </div>
+    <asp:Button ID="btnOldStock" runat="server" Text="View Old Items On Stock" OnClick="btnOldStock_Click" />
          <div>
 
        
