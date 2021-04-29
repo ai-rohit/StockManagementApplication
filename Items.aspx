@@ -69,9 +69,17 @@
                 <asp:BoundField DataField="quantity" HeaderText="Quantity" SortExpression="quantity" />
             </Columns>
         </asp:GridView>
-    <div class="row">
-        <asp:Button ID="btnOldStock" runat="server" Text="View Old Items On Stock" OnClick="btnOldStock_Click" />
-        <asp:Button ID="btnNotSold" runat="server" Text="View Items Not Sold in Last 31 Days" OnClick="btnNotPurchased_Click" />
+    <div class="row mb-4">
+        <div class="col-4">
+            <asp:Button ID="btnOldStock" runat="server" CssClass="btn btn-info btn-lg btn-block" style="height:80px;" Text="View Old Items On Stock" OnClick="btnOldStock_Click" />
+        </div>
+        <div class="col-4">
+             <asp:Button ID="btnNotSold" runat="server"  CssClass="btn btn-warning btn-lg btn-block" style="height:80px;" Text="View Items Not Sold in Last 31 Days" OnClick="btnNotPurchased_Click" />
+        </div>
+       <div class="col-4">
+            <asp:Button ID="btnSortItem" runat="server"  CssClass="btn btn-danger btn-lg btn-block" style="height:80px;" Text="View Items Out Of Stock" OnClick="btnSortItem_Click" />
+       </div>
+       
     </div>
     
          <div>

@@ -80,11 +80,13 @@
     <Content Include="Category.aspx" />
     <Content Include="CustomerPurchases.aspx" />
     <Content Include="ItemDetails.aspx" />
+    <Content Include="MyProfile.aspx" />
     <Content Include="NotPurchased.aspx" />
     <Content Include="OldStock.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="OutOfStock.aspx" />
     <Content Include="Registration\RegisterUser.aspx" />
     <Content Include="Sales.aspx" />
     <Content Include="StockUser.aspx" />
@@ -112,6 +114,13 @@
     </Compile>
     <Compile Include="ItemDetails.aspx.designer.cs">
       <DependentUpon>ItemDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyProfile.aspx.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyProfile.aspx.designer.cs">
+      <DependentUpon>MyProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="NotPurchased.aspx.cs">
       <DependentUpon>NotPurchased.aspx</DependentUpon>
@@ -147,6 +156,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutOfStock.aspx.cs">
+      <DependentUpon>OutOfStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutOfStock.aspx.designer.cs">
+      <DependentUpon>OutOfStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\RegisterUser.aspx.cs">

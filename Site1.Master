@@ -7,6 +7,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="assets/img/items-chart.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/CSS/master-styles.css">
@@ -45,7 +46,7 @@
                         </a>
 
                         <a href="User.aspx" class="nav__link">
-                            <i class='bx bx-user nav__icon' ></i>
+                            <i class='bx bx-face-mask nav__icon' ><img src="https://img.icons8.com/ios-glyphs/30/f6f6f6/group.png" style="color:white"/></i>
                             <span class="nav__name">Customers</span>
                         </a>
 
@@ -73,13 +74,15 @@
                             <i class='bx bx-purchase-tag-alt nav__icon' ></i>
                             <span class="nav__name">Customer Purchases</span>
                         </a>
+
+                         <a href="MyProfile.aspx" class="nav__link">
+                            <i class='bx bx-face-mask nav__icon' ><img src="https://img.icons8.com/material/24/f2f2f2/user-male-circle--v1.png"/></i>
+                            <span class="nav__name">My Profile</span>
+                        </a>
                     </div>
                 </div>
 
-                <a href="#" class="nav__link">
-                    <i class='bx bx-log-out nav__icon' ></i>
-                    <span class="nav__name">Log Out</span>
-                </a>
+               
             </nav>
         </div>
         <div>

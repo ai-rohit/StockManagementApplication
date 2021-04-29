@@ -125,29 +125,38 @@
     <div class="row justify-content-around">
         <asp:Label ID="lblUserEmail" CssClass="col-12" runat="server" Text="Label"></asp:Label>
         <div class="card col-3" style="box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <h5 class="card-title">Total Items Available</h5>
+			<div>
+				<h5 class="card-title">Total Items Available</h5>
             <div class="card-body">
                 <img src="assets/img/items-chart.png"/>
             </div>
+			</div>
+            
         </div>
          <div class="card col-3" style="box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <h5 class="card-title">Total Items Available</h5>
+            <div>
+				<h5 class="card-title">Total Items Available</h5>
             <div class="card-body">
                 <img src="assets/img/items-chart.png"/>
             </div>
+			</div>
         </div>
          <div class="card col-3">
-             <h5 class="card-title">Total Number of Users</h5>
+             <div>
+				<h5 class="card-title">Total Items Available</h5>
+            <div class="card-body">
+                <img src="assets/img/items-chart.png"/>
+            </div>
+			</div>
 
         </div>
-         <div class="card col-3">
-              
-             <h5 class="card-title">Total Number of Sales</h5>
-             
-        </div>
-        <div class="card col-11 justify-content-center mt-4">
+		<div class="card col-6 align-self-start">
+
+		</div>
+         
+        <div class="card table-responsive col-11 justify-content-center mt-4">
             <h5 class="card-title">Inactive Users (No Purchase in Last 31 days)<hr /></h5>
-            <asp:GridView ID="grdInactiveUsers" runat="server" AutoGenerateColumns="False" DataKeyNames="customerId" DataSourceID="inactiveUserDataSource">
+            <asp:GridView ID="grdInactiveUsers" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="customerId" DataSourceID="inactiveUserDataSource">
                 <Columns>
                     <asp:BoundField DataField="customerId" HeaderText="customerId" InsertVisible="False" ReadOnly="True" SortExpression="customerId" />
                     <asp:BoundField DataField="customerName" HeaderText="customerName" SortExpression="customerName" />

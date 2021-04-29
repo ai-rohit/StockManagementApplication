@@ -61,5 +61,10 @@ namespace StockManagementApplication
                 Response.Redirect("~/ItemDetails.aspx");
             }
         }
+
+        protected void btnSortItem_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/OutOfStock.aspx");
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace StockManagementApplication
                     registrationDataSource.InsertParameters["userName"].DefaultValue = txtUserName.Text;
                     registrationDataSource.InsertParameters["userAddress"].DefaultValue = txtUserAddress.Text;
                     registrationDataSource.InsertParameters["userContact"].DefaultValue = txtMobile.Text;
-                    registrationDataSource.InsertParameters["userType"].DefaultValue = "Customer";
+                    registrationDataSource.InsertParameters["userType"].DefaultValue = "user";
                     registrationDataSource.InsertParameters["password"].DefaultValue = txtPassword.Text;
                    
                     registrationDataSource.Insert();

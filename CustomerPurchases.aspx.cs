@@ -13,5 +13,17 @@ namespace StockManagementApplication
         {
 
         }
+
+        protected void btnSeeAllPurchase_Click(object sender, EventArgs e)
+        {
+            grdPurchases.Visible = false;
+            grdAllPurchase.Visible = true;
+        }
+
+        protected void drpDownCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grdAllPurchase.Visible = false;
+            grdPurchases.Visible = true;
+        }
     }
 }

@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row justify-content-around">
-    <div class="card col-4 shadow p-3 mb-5 bg-white rounded">
-        <h4 class="card-title">Add New Customer</h4>
+    <div class="card col-12 mr-3 mt-4" style=" box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 30px 0px 30px 0px;">
+        <h4 class="card-title mt-4">Add New Customer</h4>
         <hr/>
         <div class="form-group row justify-content-center">
             <asp:Label ID="nameLabel" CssClass="col-9" runat="server" Text="Full Name"></asp:Label>
@@ -34,29 +34,14 @@
         </div>
        
     </div>
-    <div class="card col-7 shadow p-3 mb-5 bg-white rounded">
+    <div class="card col-12 mr-3 mt-4" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 30px 0px 30px 0px;">
     <div class="card-body">
-        <h4>List of Users</h4>
-    <asp:GridView ID="usersGrid" runat="server" AutoGenerateColumns="False" DataKeyNames="userId" DataSourceID="userDataSource">
-        <Columns>
-            <asp:BoundField DataField="userId" HeaderText="userId" ReadOnly="True" SortExpression="userId" InsertVisible="False" />
-            <asp:BoundField DataField="userName" HeaderText="userName" SortExpression="userName" />
-            <asp:BoundField DataField="userEmail" HeaderText="userEmail" SortExpression="userEmail" />
-            <asp:BoundField DataField="userAddress" HeaderText="userAddress" SortExpression="userAddress" />
-            <asp:BoundField DataField="userContact" HeaderText="userContact" SortExpression="userContact" />
-            <asp:BoundField DataField="password" HeaderText="password" SortExpression="password" />
-            <asp:BoundField DataField="userType" HeaderText="userType" SortExpression="userType" />
-            
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="userDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Users]"></asp:SqlDataSource>
-
-    </div>
-    <div class=" row">
-        <h4 class="card-title">List of Customers</h4>
-        <asp:GridView ID="customerGrid" CssClass="table table-responsive" runat="server" AutoGenerateColumns="False" DataKeyNames="customerId" DataSourceID="customerDataSource">
+        <h4>List of Customers</h4>
+        <asp:GridView ID="customerGrid" CssClass="table table-responsive table-bordered" runat="server" AutoGenerateColumns="False" DataKeyNames="customerId" DataSourceID="customerDataSource">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+               <asp:CommandField ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
+                    ShowEditButton="True" UpdateImageUrl="~/assets/img/confirm.png" DeleteImageUrl="~/assets/img/delete.png" ShowDeleteButton="True"/>
+
                 <asp:BoundField DataField="customerId" HeaderText="customerId" InsertVisible="False" ReadOnly="True" SortExpression="customerId" />
                 <asp:BoundField DataField="customerName" HeaderText="customerName" SortExpression="customerName" />
                 <asp:BoundField DataField="customerEmail" HeaderText="customerEmail" SortExpression="customerEmail" />
@@ -109,6 +94,7 @@
                 <asp:Parameter Name="customerId" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
+
     </div>
         </div>
         </div>

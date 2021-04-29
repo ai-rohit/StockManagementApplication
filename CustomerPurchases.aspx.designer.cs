@@ -33,6 +33,15 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.DropDownList drpDownCustomer;
 
         /// <summary>
+        /// btnSeeAllPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSeeAllPurchase;
+
+        /// <summary>
         /// grdPurchases control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,24 @@ namespace StockManagementApplication
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdPurchases;
+
+        /// <summary>
+        /// allPurchaseDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource allPurchaseDataSource;
+
+        /// <summary>
+        /// grdAllPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAllPurchase;
 
         /// <summary>
         /// recentPurchaseDataSource control.

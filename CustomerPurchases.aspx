@@ -2,9 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h4 class="card-title">Purchases By Customers</h4>
+    <hr/>
     <asp:SqlDataSource ID="customerDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [customerId], [customerName] FROM [Customers]"></asp:SqlDataSource>
+    <div class="card row">
+        <div class="col-6">
+               <label>Select a Customer To See Their Purchases in Last 31 days</label>
+        </div>
+        <div class="col-3">
+                  <asp:DropDownList ID="drpDownCustomer" CssClass="dropdown dropdown-toggle btn-primary" runat="server" AutoPostBack="True" DataSourceID="customerDataSource" DataTextField="customerName" DataValueField="customerId" OnSelectedIndexChanged="drpDownCustomer_SelectedIndexChanged">
+                   </asp:DropDownList>
+        </div>
+      
+    </div>
     <div>
-        <asp:DropDownList ID="drpDownCustomer" runat="server" AutoPostBack="True" DataSourceID="customerDataSource" DataTextField="customerName" DataValueField="customerId"></asp:DropDownList>
+        <asp:Button ID="btnSeeAllPurchase" runat="server" Text="See All Purchase" OnClick="btnSeeAllPurchase_Click" />
     </div>
     <div class="card">
         <asp:GridView ID="grdPurchases" runat="server" AutoGenerateColumns="False" DataSourceID="recentPurchaseDataSource">
@@ -14,6 +26,16 @@
                 <asp:BoundField DataField="totalAmount" HeaderText="totalAmount" SortExpression="totalAmount" />
                 <asp:BoundField DataField="ItemName" HeaderText="ItemName" SortExpression="ItemName" />
                 <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
+                <asp:BoundField DataField="lineTotal" HeaderText="lineTotal" SortExpression="lineTotal" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="allPurchaseDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT * FROM [Order_Details]"></asp:SqlDataSource>
+        <asp:GridView ID="grdAllPurchase" runat="server" AutoGenerateColumns="False" DataKeyNames="orderId" DataSourceID="allPurchaseDataSource" Visible="False">
+            <Columns>
+                <asp:BoundField DataField="orderId" HeaderText="orderId" InsertVisible="False" ReadOnly="True" SortExpression="orderId" />
+                <asp:BoundField DataField="itemId" HeaderText="itemId" SortExpression="itemId" />
+                <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
+                <asp:BoundField DataField="salesId" HeaderText="salesId" SortExpression="salesId" />
                 <asp:BoundField DataField="lineTotal" HeaderText="lineTotal" SortExpression="lineTotal" />
             </Columns>
         </asp:GridView>
