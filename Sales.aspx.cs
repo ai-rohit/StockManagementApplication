@@ -19,7 +19,7 @@ namespace StockManagementApplication
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) {
-                AddDefaultFirstRecord();
+                InitiateCart();
             }
         }
 
@@ -58,7 +58,7 @@ namespace StockManagementApplication
         {
             try
             {
-                AddNewRecordRowToGrid();
+                AddToCart();
             }
             catch (Exception ex) {
                 lblCartMessage.Text = "Something went wrong while adding items to cart!";
@@ -66,7 +66,7 @@ namespace StockManagementApplication
             }
         }
 
-        public void AddDefaultFirstRecord() {
+        public void InitiateCart() {
             try
             {
                 if (Session["Cart"] == null)
@@ -103,7 +103,12 @@ namespace StockManagementApplication
 
 }
 
-        public void AddNewRecordRowToGrid() {
+        public void AddToCart() {
+            if (Int32.Parse(lblQuantity.Text) < Int32.Parse(txtQuantity.Text)) {
+                lblCartMessage.Text = "The quantity you selected exceeds the quantity on stock for the item!";
+                lblCartMessage.Visible = true;
+                return;
+            }
             if (lblCustomer.Text == "Customer Id" || dropDnCustomer.SelectedValue == lblCustomer.Text)
             {
                 lblCustomer.Text = dropDnCustomer.SelectedValue;
@@ -133,7 +138,7 @@ namespace StockManagementApplication
                             dtCurrentTable.AcceptChanges();
 
                         }
-
+                        lblCartMessage.Visible = false;
                         //add created Rows into dataTable  
                         dtCurrentTable.Rows.Add(drCurrentRow);
                         //Save Data table into view state after creating each row  
@@ -203,31 +208,60 @@ namespace StockManagementApplication
                 String strConnString = ConfigurationManager.ConnectionStrings["StockConnectionString"].ConnectionString;
                 SqlConnection conn = new SqlConnection(strConnString);
                 String query = "Insert into Sales values (@customerId, @billingDate, @totalAmount); Select SCOPE_IDENTITY();";
+                String quantityQuery = "Update Items Set quantity = quantity- @selectedQuantity where itemId = @itemId";
+                String orderDetailsQuery = "Insert into Order_details values (@itemId, @quantity, @lineTotal, @salesId)";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@customerId", lblCustomer.Text);
-                cmd.Parameters.AddWithValue("@billingDate", txtBillingDate.Text);
-                cmd.Parameters.AddWithValue("@totalAmount", totalAmount.ToString());
 
                 conn.Open();
-                /*cmd.ExecuteNonQuery();*/
-                var salesId = cmd.ExecuteScalar();
-                conn.Close();
-                Console.WriteLine(salesId);
-                /* lblCustomer.Text = salesId.ToString();*/
-
-                DataView orderData = (DataView)OrderDetailsDataSource.Select(DataSourceSelectArguments.Empty);
-                foreach (DataRow dr in cartTable.Rows)
+                //SqlTransaction transaction = conn.BeginTransaction();
+                try
                 {
-                    OrderDetailsDataSource.InsertParameters["itemId"].DefaultValue = dr["ItemId"].ToString();
-                    OrderDetailsDataSource.InsertParameters["quantity"].DefaultValue = dr["Quantity"].ToString();
-                    OrderDetailsDataSource.InsertParameters["lineTotal"].DefaultValue = dr["LineTotal"].ToString();
-                    OrderDetailsDataSource.InsertParameters["salesId"].DefaultValue =salesId.ToString();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@customerId", lblCustomer.Text);
+                    cmd.Parameters.AddWithValue("@billingDate", txtBillingDate.Text);
+                    cmd.Parameters.AddWithValue("@totalAmount", totalAmount.ToString());
 
-                    OrderDetailsDataSource.Insert();
+                    int salesId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    /* Console.WriteLine(salesId);*/
+                    lblCustomer.Text = salesId.ToString();
+                    lblCustomer.Visible = true;
+
+                    DataView orderData = (DataView)OrderDetailsDataSource.Select(DataSourceSelectArguments.Empty);
+                    foreach (DataRow dr in cartTable.Rows)
+                    {
+                      /*  cmd = new SqlCommand(orderDetailsQuery, conn, transaction);
+                        cmd.Parameters.AddWithValue("@itemId", dr["ItemId"].ToString());
+                        cmd.Parameters.AddWithValue("@quantity", dr["Quantity"].ToString());
+                        cmd.Parameters.AddWithValue("@lineTotal", dr["LineTotal"].ToString());
+                        cmd.Parameters.AddWithValue("@salesId", salesId.ToString());
+                        cmd.ExecuteNonQuery();
+
+                        cmd = new SqlCommand(quantityQuery, conn, transaction);
+                        cmd.Parameters.AddWithValue("@selectedQuantity", dr["Quantity"].ToString());
+                        cmd.Parameters.AddWithValue("@itemId", dr["ItemId"].ToString());
+                        cmd.ExecuteNonQuery();*/
+                        OrderDetailsDataSource.InsertParameters["itemId"].DefaultValue = dr["ItemId"].ToString();
+                        OrderDetailsDataSource.InsertParameters["quantity"].DefaultValue = dr["Quantity"].ToString();
+                        OrderDetailsDataSource.InsertParameters["lineTotal"].DefaultValue = dr["LineTotal"].ToString();
+                        OrderDetailsDataSource.InsertParameters["salesId"].DefaultValue = salesId.ToString();
+
+                        OrderDetailsDataSource.Insert();
+
+                        cmd = new SqlCommand(quantityQuery, conn);
+                        cmd.Parameters.AddWithValue("@selectedQuantity", dr["Quantity"].ToString());
+                        cmd.Parameters.AddWithValue("@itemId", dr["ItemId"].ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                   /* transaction.Commit();*/
+                    lblCustomer.Text = "Customer Id";
+                    clearAndInitiateCart();
                 }
-                lblCustomer.Text = "Customer Id";
-                clearAndInitiateCart();
+                catch (Exception ex) {
+                   // transaction.Rollback();
+                    msgLabel.Text = ex.Message;
+                    msgLabel.Visible = true;
+                }
 
             }
             catch (Exception ex) {
@@ -237,7 +271,7 @@ namespace StockManagementApplication
                   
         }
         public void clearAndInitiateCart() {
-            Session.Clear();
+            Session["Cart"] = null;
             lblCustomer.Text = "Customer Id";
             lblTotalValue.Text = "0";
             if (Session["Cart"] == null)

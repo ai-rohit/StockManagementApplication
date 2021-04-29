@@ -24,8 +24,9 @@
         <div class =" justify-content-center card row col-8 mt-4" style="display:flex; flex-direction: column; width:50%; box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <h4 class="card-title mt-4">Available Categories</h4>
             <hr />
-           <asp:GridView ID="grdCategory" class="table table-striped" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
+           <asp:GridView ID="grdCategory" class="table table-striped table-bordered" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="categoryDataSource">
             <Columns>
+                
                 <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" InsertVisible="False" />
                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />

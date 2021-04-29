@@ -22,15 +22,16 @@
                 <i class='bx bx-menu' id="header-toggle"></i>
             </div>
             <div style="display:flex; justify-content:flex-end; width: 90%">
-                 <asp:Label ID="lblUser"  runat="server" Text="User"></asp:Label>
+                <asp:Button ID="btnLogout" runat="server" Text="Log Out" CssClass="btn btn-danger mr-4 mb-2" OnClick="btnLogout_Click"/>
+                 <asp:Label ID="lblUser" runat="server" Text="User" CssClass="mt-2"></asp:Label>
             </div>
             <div class="header__img" style="display:flex">
                 <img src="assets/img/images.png" alt="">
             </div>
         </header>
 
-        <div class="l-navbar show" id="nav-bar" style="display:flex; flex-grow: 1;">
-            <nav class="nav">
+        <div class="l-navbar show" id="nav-bar" style="display:flex; flex-grow: 1; height:200%">
+            <nav class="nav" style="height:100%">
                 <div>
                     <a href="Dashboard.aspx" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
@@ -39,17 +40,22 @@
 
                     <div class="nav__list">
                         <a href="Dashboard.aspx" class="nav__link">
-                        <i class='bx bx-grid-alt nav__icon' ></i>
+                        <i class='bx bx-home-smile nav__icon' ></i>
                             <span class="nav__name">Dashboard</span>
                         </a>
 
                         <a href="User.aspx" class="nav__link">
                             <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Customers</span>
+                        </a>
+
+                         <a href="StockUser.aspx" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
                             <span class="nav__name">Users</span>
                         </a>
                         
                         <a href="Category.aspx" class="nav__link">
-                            <i class='bx bx-message-square-detail nav__icon' ></i>
+                            <i class='bx bx-grid-alt nav__icon' ></i>
                             <span class="nav__name">Categories</span>
                         </a>
 
@@ -59,13 +65,13 @@
                         </a>
 
                         <a href="Sales.aspx" class="nav__link">
-                            <i class='bx bx-folder nav__icon' ></i>
+                            <i class='bx bx-cart-alt nav__icon' ></i>
                             <span class="nav__name">Sales</span>
                         </a>
 
-                        <a href="#" class="nav__link">
-                            <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
-                            <span class="nav__name">Analytics</span>
+                        <a href="CustomerPurchases.aspx" class="nav__link">
+                            <i class='bx bx-purchase-tag-alt nav__icon' ></i>
+                            <span class="nav__name">Customer Purchases</span>
                         </a>
                     </div>
                 </div>

@@ -25,6 +25,10 @@ namespace StockManagementApplication
             if (authenticated)
             {
                 Session["UserEmail"] = txtEmail.Text.ToString();
+                foreach (DataRowView drvSql in data)
+                {
+                    Session["UserType"] = drvSql["userType"].ToString();
+                }
                 FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
                 
             }

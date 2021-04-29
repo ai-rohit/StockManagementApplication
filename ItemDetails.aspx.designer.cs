@@ -11,151 +11,124 @@ namespace StockManagementApplication
 {
 
 
-    public partial class Items
+    public partial class ItemDetails
     {
 
         /// <summary>
-        /// txtItemName control.
+        /// lblItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemName;
+        protected global::System.Web.UI.WebControls.Label lblItemId;
 
         /// <summary>
-        /// txtItemDesc control.
+        /// txtItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtItemId;
 
         /// <summary>
-        /// txtItemPrice control.
+        /// lblItemName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemPrice;
+        protected global::System.Web.UI.WebControls.Label lblItemName;
 
         /// <summary>
-        /// dropCategory control.
+        /// itemName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropCategory;
+        protected global::System.Web.UI.WebControls.Label itemName;
 
         /// <summary>
-        /// txtPurchaseDate control.
+        /// lblCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchaseDate;
+        protected global::System.Web.UI.WebControls.Label lblCategory;
 
         /// <summary>
-        /// txtQuantity control.
+        /// category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        protected global::System.Web.UI.WebControls.Label category;
 
         /// <summary>
-        /// txtManufactured control.
+        /// lblAvailableQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtManufactured;
+        protected global::System.Web.UI.WebControls.Label lblAvailableQuantity;
 
         /// <summary>
-        /// txtExpiry control.
+        /// availableQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtExpiry;
+        protected global::System.Web.UI.WebControls.Label availableQuantity;
 
         /// <summary>
-        /// btnAddItems control.
+        /// lblUnitPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddItems;
+        protected global::System.Web.UI.WebControls.Label lblUnitPrice;
 
         /// <summary>
-        /// itemDataSource1 control.
+        /// unitPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource itemDataSource1;
+        protected global::System.Web.UI.WebControls.Label unitPrice;
 
         /// <summary>
-        /// Label1 control.
+        /// lblPurchasedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblPurchasedDate;
 
         /// <summary>
-        /// grdItem control.
+        /// purchasedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdItem;
+        protected global::System.Web.UI.WebControls.Label purchasedDate;
 
         /// <summary>
-        /// btnOldStock control.
+        /// itemDetailsSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOldStock;
-
-        /// <summary>
-        /// btnNotSold control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNotSold;
-
-        /// <summary>
-        /// itemDataSource3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource itemDataSource3;
-
-        /// <summary>
-        /// itemDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource itemDataSource2;
+        protected global::System.Web.UI.WebControls.SqlDataSource itemDetailsSource;
     }
 }

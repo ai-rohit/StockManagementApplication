@@ -43,5 +43,23 @@ namespace StockManagementApplication
         {
             Response.Redirect("~/OldStock.aspx");
         }
+
+        protected void btnNotPurchased_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/NotPurchased.aspx");
+        }
+
+        protected void grdItem_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "ViewDetails")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                Label1.Text = index.ToString();
+                string data = grdItem.Rows[index].Cells[2].Text;
+
+                Session["ItemId"] = data;
+                Response.Redirect("~/ItemDetails.aspx");
+            }
+        }
     }
 }

@@ -42,7 +42,7 @@
         </div>
 
         <div class="side-background col-md-6 d-none d-md-block" style="background-color:blue; height:100vh">
-
+            <img src="assets/img/Login.jpg" style="height:50%; width:50%"/>
         </div>
         </div>
 

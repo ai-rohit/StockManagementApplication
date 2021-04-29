@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.Web.Script.Serialization;
 
 namespace StockManagementApplication
 {
@@ -15,20 +16,20 @@ namespace StockManagementApplication
             DataView itemData = (DataView)itemStockDataSource.Select(DataSourceSelectArguments.Empty);
             if (!Page.IsPostBack)
             {
-               
-              /*  if (itemData.Table.Rows.Count > 0)
+
+                if (itemData.Table.Rows.Count > 0)
                 {
-                    string Data = "";
+                    List<string> itemList = new List<string>();
+                   
                     foreach (DataRowView drvSql in itemData)
                     {
-                        
-                        Data = Data + drvSql["itemName"].ToString();
-
+                        itemList.Add(drvSql["itemName"].ToString());
                     }
+                    string[] itemListArray = itemList.ToArray();
+                    string serializedItems = (new JavaScriptSerializer()).Serialize(itemListArray);
                     string title = "Low Stock";
-                    string message = $"Some items are low on stocks! They are: {Data}";
-                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup('" + title + "', '" + message + "');", true);
-                }*/
+                    ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowUp('" + title + "', '" + serializedItems + "');", true);
+                }
             }
 
             if (Session["UserEmail"] != null && Session["UserEmail"].ToString() != "")

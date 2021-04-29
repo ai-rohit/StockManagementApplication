@@ -48,14 +48,16 @@
         <asp:Button ID="btnAddItems" style="margin-left: 25px; top: 0px; left: 0px;" runat="server" CssClass="col-10 btn btn-primary btn-block form-control" OnClick="btnAddItems_Click" Text="Add Items" />
         <asp:SqlDataSource ID="itemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Category]"></asp:SqlDataSource>
 
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
     </div>
         
         </div>
-     <asp:GridView ID="grdItem" CssClass="table table-striped table-responsive table-bordered mt-4 mr-3" style="margin-right:10px" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3">
+     <asp:GridView ID="grdItem" CssClass="table table-striped table-responsive table-bordered mt-4 mr-3" style="margin-right:10px" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3" OnRowCommand="grdItem_RowCommand">
             <Columns>
+                <asp:ButtonField CommandName="ViewDetails" ControlStyle-CssClass="btn btn-success" Text="Details" ItemStyle-HorizontalAlign="Center"/>
                  <asp:CommandField ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
                     ShowEditButton="True" UpdateImageUrl="~/assets/img/confirm.png" DeleteImageUrl="~/assets/img/delete.png" ShowDeleteButton="True"/>
-                 <asp:CommandField ControlStyle-CssClass="btn btn-primary btn-sm" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowSelectButton="True" />
                 <asp:BoundField DataField="itemId" HeaderText="Item Id" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
                 <asp:BoundField DataField="itemName" HeaderText="Item Name" SortExpression="itemName" />
                 <asp:BoundField DataField="itemDesc" HeaderText="Item Description" SortExpression="itemDesc" />
@@ -67,7 +69,11 @@
                 <asp:BoundField DataField="quantity" HeaderText="Quantity" SortExpression="quantity" />
             </Columns>
         </asp:GridView>
-    <asp:Button ID="btnOldStock" runat="server" Text="View Old Items On Stock" OnClick="btnOldStock_Click" />
+    <div class="row">
+        <asp:Button ID="btnOldStock" runat="server" Text="View Old Items On Stock" OnClick="btnOldStock_Click" />
+        <asp:Button ID="btnNotSold" runat="server" Text="View Items Not Sold in Last 31 Days" OnClick="btnNotPurchased_Click" />
+    </div>
+    
          <div>
 
        

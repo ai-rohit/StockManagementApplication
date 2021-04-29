@@ -13,10 +13,23 @@ namespace StockManagementApplication
         {
             if (Session["UserEmail"] == null || Session["UserEmail"].ToString() == "")
             {
+                Response.Redirect("~/Login.aspx");
                 lblUser.Text = "Anonymous User";
             }
             else {
                 lblUser.Text = Session["UserEmail"].ToString();
+            }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session.Clear();
+                Response.Redirect("~/Login.aspx");
+            }
+            catch (Exception ex) {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Something went wrong logging out!')", true);
             }
         }
     }
