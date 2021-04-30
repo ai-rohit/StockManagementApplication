@@ -123,6 +123,42 @@ namespace StockManagementApplication
         protected global::System.Web.UI.WebControls.Label purchasedDate;
 
         /// <summary>
+        /// lblManufacturedDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManufacturedDate;
+
+        /// <summary>
+        /// manufactureDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label manufactureDate;
+
+        /// <summary>
+        /// lblExpiryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExpiryDate;
+
+        /// <summary>
+        /// expiryDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label expiryDate;
+
+        /// <summary>
         /// itemDetailsSource control.
         /// </summary>
         /// <remarks>

@@ -15,23 +15,27 @@
     
     <form id="form1" runat="server">
         <div class="row" style="height: 100vh">
-        <div class="form-container col-md-6" style="height: 100vh">
-             <h4>Login</h4>
-                <h6>Manage your stock faster and easier!</h6>
-                <hr /><p>Sign in with email</p><hr />
+        <div class="form-container justify-content-center col-md-6" style="height: 100vh">
+             <h2 style="text-align:center; margin-top: 80px; margin-right:20px;"><img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/>Login</h2>
+                <h6 style="text-align:center;">Manage your stock faster and easier!</h6>
+                <hr /><p style="margin-left:100px;"></p><hr />
             <div class="align-middle" style="display:flex; flex-direction: column;">
                
                 <div class="form-group row justify-content-center">
                     <label for="txtEmail" class="labels col-9" >Email*</label><br />
                     <asp:TextBox ID="txtEmail" runat="server" class="textInput form-control col-8"></asp:TextBox>
+                    <div class="col-12" style="margin-left:195px;">
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Invalid Email Address" ControlToValidate="txtEmail" Display="Dynamic" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ForeColor="Red"></asp:RegularExpressionValidator>
                 </div>
+                    </div>
+
                 <div class="form-group row justify-content-center">
                     <label for="txtPassword" class="labels col-9">Password*</label><br />
-                    <asp:TextBox ID="txtPassword" runat="server"  class="textInput form-control col-8"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" type="password" runat="server"  class="textInput form-control col-8"></asp:TextBox>
                 </div>
                 
                 <div class="form-group row justify-content-center">
-                    <asp:Label ID="errorLabel" class="col-8" runat="server" Text="Label" ForeColor="Red" Visible="False"></asp:Label>
+                    <asp:Label ID="errorLabel" class="col-8 mb-3" runat="server" Text="Label" ForeColor="Red" Visible="False"></asp:Label>
 
                    <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn btn-primary btn-block col-8" OnClick="btnLogin_Click"/>
                 </div>
@@ -41,8 +45,11 @@
             
         </div>
 
-        <div class="side-background col-md-6 d-none d-md-block" style="background-color:blue; height:100vh">
-            <img src="assets/img/Login.jpg" style="height:50%; width:50%"/>
+        <div class="side-background col-md-6 d-none d-md-block " style="background-color:blue; height:100vh">
+            <h2 style="color:white; margin-top:70px; font-weight:bold; margin-left:200px;">Welcome To </h2>
+            <h3  style="color:white; margin-top:10px; font-weight:bold; margin-left:100px;">Your Stock Management Application</h3>
+            <img src="assets/img/login.svg" style="width:70%; margin-top:120px; margin-left:70px;"/>
+            
         </div>
         </div>
 

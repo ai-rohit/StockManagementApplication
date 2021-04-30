@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row align-self-center justify-content-center" style="width:90%">
         <div class="card col-9 mt-5 p-2 ml-5" style=" box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 30px 0px 30px 0px;">
-            <h5 class="card-title">Details of Selected Item</h5>
+            <h4 class="card-title mt-4">Details of Selected Item</h4>
             <hr />
       <div class="col-12 mt-4">
         <asp:Label ID="lblItemId" runat="server" Text="Item Id" Font-Bold="true" Font-Size="Larger"></asp:Label>
@@ -31,6 +31,15 @@
         <div class="col-12 mt-4">
         <asp:Label ID="lblPurchasedDate" runat="server" Text="Purchased Date:" Font-Bold="true" Font-Size="Larger"></asp:Label>
         <asp:Label ID="purchasedDate" runat="server" Text="Purchased Date" Visible="false" Font-Size="Larger" style="margin-left:10px"></asp:Label>
+    </div>
+
+            <div class="col-12 mt-4">
+        <asp:Label ID="lblManufacturedDate" runat="server" Text="Manufactured Date:" Font-Bold="true" Font-Size="Larger"></asp:Label>
+        <asp:Label ID="manufactureDate" runat="server" Text="Manufactured Date" Visible="false" Font-Size="Larger" style="margin-left:10px"></asp:Label>
+    </div>
+            <div class="col-12 mt-4">
+        <asp:Label ID="lblExpiryDate" runat="server" Text="Expiry Date:" Font-Bold="true" Font-Size="Larger"></asp:Label>
+        <asp:Label ID="expiryDate" runat="server" Text="Expiry Date" Visible="false" Font-Size="Larger" style="margin-left:10px"></asp:Label>
     </div>
      </div>
         <asp:SqlDataSource ID="itemDetailsSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Items] WHERE [itemId] = @itemId" InsertCommand="INSERT INTO [Items] ([itemName], [itemDesc], [itemPrice], [purchaseDate], [category], [manufacturedDate], [expiryDate], [quantity]) VALUES (@itemName, @itemDesc, @itemPrice, @purchaseDate, @category, @manufacturedDate, @expiryDate, @quantity)" SelectCommand="SELECT * FROM [Items] join [Category] on Items.category = category.id WHERE ([itemId] = @itemId)" UpdateCommand="UPDATE [Items] SET [itemName] = @itemName, [itemDesc] = @itemDesc, [itemPrice] = @itemPrice, [purchaseDate] = @purchaseDate, [category] = @category, [manufacturedDate] = @manufacturedDate, [expiryDate] = @expiryDate, [quantity] = @quantity WHERE [itemId] = @itemId">

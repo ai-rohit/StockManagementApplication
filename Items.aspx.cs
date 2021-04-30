@@ -17,24 +17,48 @@ namespace StockManagementApplication
 
         protected void btnAddItems_Click(object sender, EventArgs e)
         {
-            DataView dataview = (DataView)itemDataSource2.Select(DataSourceSelectArguments.Empty);
-            bool duplicate = dataview.Table.Rows.Count > 0;
+            try
+            {
+                if (txtItemName.Text == "" || txtItemDesc.Text == "" || txtItemPrice.Text == "" || txtQuantity.Text == "" || Int32.Parse(txtQuantity.Text) < 1 || txtPurchaseDate.Text == "")
+                {
+                    errorMsg.Text = "*Some fields are missing or invalid! Please try again";
+                    errorMsg.Visible = true;
+                    return;
+                }
+                DataView dataview = (DataView)itemDataSource2.Select(DataSourceSelectArguments.Empty);
+                bool duplicate = dataview.Table.Rows.Count > 0;
 
-            if (duplicate)
-            {
-                Response.Write("Duplicate Entry Found");
+                if (duplicate)
+                {
+                    errorMsg.Visible = true;
+                    errorMsg.Text = "*Item already in database! Please update through table if you want to update the item!";
+                }
+                else
+                {
+                    itemDataSource2.InsertParameters["itemName"].DefaultValue = txtItemName.Text;
+                    itemDataSource2.InsertParameters["itemDesc"].DefaultValue = txtItemDesc.Text;
+                    itemDataSource2.InsertParameters["itemPrice"].DefaultValue = txtItemPrice.Text;
+                    itemDataSource2.InsertParameters["purchaseDate"].DefaultValue = txtPurchaseDate.Text;
+                    itemDataSource2.InsertParameters["category"].DefaultValue = dropCategory.SelectedItem.Value;
+                    itemDataSource2.InsertParameters["manufacturedDate"].DefaultValue = txtManufactured.Text;
+                    itemDataSource2.InsertParameters["expiryDate"].DefaultValue = txtExpiry.Text;
+                    itemDataSource2.InsertParameters["quantity"].DefaultValue = txtQuantity.Text;
+                    itemDataSource2.Insert();
+                    grdItem.DataBind();
+                    errorMsg.Visible = false;
+                    txtItemName.Text = "";
+                    txtExpiry.Text = "";
+                    txtItemPrice.Text = "";
+                    txtPurchaseDate.Text = "";
+                    txtItemDesc.Text = "";
+                    txtManufactured.Text = "";
+                    txtQuantity.Text = "";
+                    
+                }
             }
-            else
-            {
-                itemDataSource2.InsertParameters["itemName"].DefaultValue = txtItemName.Text;
-                itemDataSource2.InsertParameters["itemDesc"].DefaultValue = txtItemDesc.Text;
-                itemDataSource2.InsertParameters["itemPrice"].DefaultValue = txtItemPrice.Text;
-                itemDataSource2.InsertParameters["purchaseDate"].DefaultValue = txtPurchaseDate.Text;
-                itemDataSource2.InsertParameters["category"].DefaultValue = dropCategory.SelectedItem.Value;
-                itemDataSource2.InsertParameters["manufacturedDate"].DefaultValue = txtManufactured.Text;
-                itemDataSource2.InsertParameters["expiryDate"].DefaultValue = txtExpiry.Text;
-                itemDataSource2.InsertParameters["quantity"].DefaultValue = txtQuantity.Text;
-                itemDataSource2.Insert();
+            catch {
+                errorMsg.Visible = true;
+                errorMsg.Text = "*Something went wrong";
             }
 
         }
@@ -54,7 +78,6 @@ namespace StockManagementApplication
             if (e.CommandName == "ViewDetails")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
-                Label1.Text = index.ToString();
                 string data = grdItem.Rows[index].Cells[2].Text;
 
                 Session["ItemId"] = data;
@@ -65,6 +88,18 @@ namespace StockManagementApplication
         protected void btnSortItem_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/OutOfStock.aspx");
+        }
+
+        protected void grdItem_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+        
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+               /* grdItem.Columns[3].Visible = false;*/
+                 grdItem.Columns[8].Visible = false;
+                grdItem.Columns[9].Visible = false;
+            }
+            
         }
     }
 }

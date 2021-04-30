@@ -13,7 +13,8 @@
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding: 14px 80px 18px 36px;
     cursor: pointer;
-    margin: 0px 5px 0px 5px;
+    margin: 30px 5px 0px 5px;
+
     }
 
    .card:hover {
@@ -122,55 +123,65 @@
 			opacity: 1;
 		}
    </style>
-    <div class="row justify-content-around">
-        <asp:Label ID="lblUserEmail" CssClass="col-12" runat="server" Text="Label"></asp:Label>
-        <div class="card col-3" style="box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-			<div>
-				<h5 class="card-title">Total Items Available</h5>
-            <div class="card-body">
-                <img src="assets/img/items-chart.png"/>
-            </div>
-			</div>
-            
-        </div>
-         <div class="card col-3" style="box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-            <div>
-				<h5 class="card-title">Total Items Available</h5>
-            <div class="card-body">
-                <img src="assets/img/items-chart.png"/>
-            </div>
-			</div>
-        </div>
-         <div class="card col-3">
-             <div>
-				<h5 class="card-title">Total Items Available</h5>
-            <div class="card-body">
-                <img src="assets/img/items-chart.png"/>
-            </div>
-			</div>
+   
+       
+       <div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Sales Made</h5>
+        <asp:Label ID="lblNumSales" Font-Bold="true" Font-Size="Larger" CssClass="card-text" runat="server" Text="Label"></asp:Label>
+		  <asp:Label ID="Label2" Font-Bold="true" Font-Size="Large" CssClass="card-text" runat="server" Text="Sales has been made in app."></asp:Label>
+        <a href="CustomerPurchases.aspx" class="btn btn-primary col-12">View Purchases</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Items in stock</h5>
+         <asp:Label ID="lblNumItems" Font-Bold="true" Font-Size="Larger" CssClass="card-text" runat="server" Text="Label"></asp:Label>
+		 <asp:Label ID="Label1" Font-Bold="true" Font-Size="Large" CssClass="card-text" runat="server" Text="Items are present in stock currently"></asp:Label>
+        <a href="Items.aspx" class="btn btn-primary col-12">View All Items</a>
+      </div>
+    </div>
+  </div>
+	<div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">No. of Customers</h5>
+         <asp:Label ID="lblNumCustomers" Font-Bold="true" Font-Size="Larger" CssClass="card-text" runat="server" Text="Label"></asp:Label>
+		   <asp:Label ID="Label3" Font-Bold="true" Font-Size="Large" CssClass="card-text" runat="server" Text="Customers registered in app."></asp:Label>
 
-        </div>
-		<div class="card col-6 align-self-start">
-
-		</div>
-         
-        <div class="card table-responsive col-11 justify-content-center mt-4">
-            <h5 class="card-title">Inactive Users (No Purchase in Last 31 days)<hr /></h5>
+        <a href="User.aspx" class="btn btn-primary col-12">View All Customers</a>
+      </div>
+    </div>
+  </div>
+		   <div class="col-12">
+			<div class="card mt-3 mb-4">
+			  <div class="card-body">
+				 <h5 class="card-title">Inactive Users (No Purchase in Last 31 days)<asp:SqlDataSource ID="numCustDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select COUNT(*) as numCustomer from customers"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="itemNumDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select count(*) as numItems from items"></asp:SqlDataSource>
+                  <asp:SqlDataSource ID="salesNumDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select count(*) as numSales from sales"></asp:SqlDataSource>
+                  <hr /></h5>
             <asp:GridView ID="grdInactiveUsers" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="customerId" DataSourceID="inactiveUserDataSource">
                 <Columns>
-                    <asp:BoundField DataField="customerId" HeaderText="customerId" InsertVisible="False" ReadOnly="True" SortExpression="customerId" />
-                    <asp:BoundField DataField="customerName" HeaderText="customerName" SortExpression="customerName" />
-                    <asp:BoundField DataField="customerEmail" HeaderText="customerEmail" SortExpression="customerEmail" />
-                    <asp:BoundField DataField="customerAddress" HeaderText="customerAddress" SortExpression="customerAddress" />
-                    <asp:BoundField DataField="customerContact" HeaderText="customerContact" SortExpression="customerContact" />
-                    <asp:BoundField DataField="memberType" HeaderText="memberType" SortExpression="memberType" />
+                    <asp:BoundField DataField="customerId" HeaderText="Customer Id" InsertVisible="False" ReadOnly="True" SortExpression="customerId" />
+                    <asp:BoundField DataField="customerName" HeaderText="Customer Name" SortExpression="customerName" />
+                    <asp:BoundField DataField="customerEmail" HeaderText="Customer Email" SortExpression="customerEmail" />
+                    <asp:BoundField DataField="customerAddress" HeaderText="Customer Address" SortExpression="customerAddress" />
+                    <asp:BoundField DataField="customerContact" HeaderText="Customer Contact" SortExpression="customerContact" />
+                    <asp:BoundField DataField="memberType" HeaderText="Member Type" SortExpression="memberType" />
                 </Columns>
             
             </asp:GridView>
-            <asp:SqlDataSource ID="inactiveUserDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select * from Customers where customerId not in (Select customerId from sales where DateDiff(dd, billingDate, Convert(date, getDate()))&lt;=31)"></asp:SqlDataSource>
-        </div>
+			  </div>
+			</div>
+		  </div>
+		</div>   
+        <asp:SqlDataSource ID="inactiveUserDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select * from Customers where customerId not in (Select customerId from sales where DateDiff(dd, billingDate, Convert(date, getDate()))&lt;=31)"></asp:SqlDataSource>
         <asp:SqlDataSource ID="itemStockDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="Select * from Items where quantity&lt;=10"></asp:SqlDataSource>
-    </div>
+    
    <div class="modal-wrapper" id="modal">
 		<section class="modal-window">
 			<header class="modal-header">
@@ -194,15 +205,21 @@
         const overlay = document.querySelector(".overlay-app");
         const modalWrapper = document.getElementById('modal');
 
-		function ShowUp(title, body) {
-			console.log(body.length);
+        function ShowUp(title, body) {
             modalWrapper.classList.add("visible");
-			overlay.classList.add("is-active");
-			var a = document.querySelector(".modal-title");
+            overlay.classList.add("is-active");
+            var a = document.querySelector(".modal-title");
             var b = document.querySelector(".stock-lists");
-			a.innerHTML = title;
-			b.innerHTML = body;
+            a.innerHTML = title;
+            const array1 = body.split(',');
+            const array2 = [array1]
+            console.log(array2);
+            var output = '';
+            for (var i in array1) {
+                output += '<li>' + array1[i] + '</li>';
 
+            }
+            b.innerHTML = output;
         }
 
         document.querySelectorAll(".continue").forEach(continueButtons => {

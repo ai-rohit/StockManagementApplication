@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
      <div class="row">
 
              <div class="form-container col-12 card mt-5" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 30px 0px 30px 0px;">
@@ -41,11 +42,12 @@
                  </div>
                  <div>
 
-                     <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
+                   
 
                  </div>
                  <div class="form-group row justify-content-center">
                      <asp:Button ID="btnRegister" runat="server" Text="Register" class="btn btn-primary btn-block col-8" OnClick="btnRegister_Click"/>
+                       <asp:Label ID="errorLabel" CssClass="col-8" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
                  </div>
                 </div>
               </div>
@@ -118,4 +120,17 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>
+    
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script>
+         function ShowProfileAlert(title, message, icon) {
+             swal({
+                 title: title,
+                 text: message,
+                 icon: icon,
+             }).then(function () {
+                     window.location = "https://localhost:44344/User.aspx";
+             });
+         }
+     </script>
 </asp:Content>

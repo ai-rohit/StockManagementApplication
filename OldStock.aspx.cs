@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StockManagementApplication
 {
-    public partial class CustomerPurchase : System.Web.UI.Page
+    public partial class OldStock : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

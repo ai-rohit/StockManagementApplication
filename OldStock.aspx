@@ -2,10 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <asp:GridView ID="grdOldStock" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="oldStockSource">
+    <div class="row justify-content-center">
+    <div class="card col-12 table-responsive justify-content-center mt-5 mr-3">
+        <h4 class="card-title mt-4">Old Items on Stock (More than 365 days)</h4>
+        <hr />
+        <asp:GridView ID="grdOldStock" runat="server" CssClass="table table-bordered table-striped" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="oldStockSource">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" />
+                <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger"/>
                 <asp:BoundField DataField="itemId" HeaderText="itemId" InsertVisible="False" ReadOnly="True" SortExpression="itemId" />
                 <asp:BoundField DataField="itemName" HeaderText="itemName" SortExpression="itemName" />
                 <asp:BoundField DataField="itemDesc" HeaderText="itemDesc" SortExpression="itemDesc" />
@@ -44,4 +47,5 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     </div>
+        </div>
 </asp:Content>

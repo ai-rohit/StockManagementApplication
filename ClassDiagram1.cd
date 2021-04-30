@@ -1,87 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="StockManagementApplication.Category">
-    <Position X="9.5" Y="9" Width="2.75" />
+    <Position X="12.5" Y="10.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAgAAAAgAAgAABAAgAAAAAAACAIACAA=</HashCode>
+      <HashCode>BAAAAAABAAAAAAgAAIAgAAgABBAAgAAIQAAACgIACAA=</HashCode>
       <FileName>Category.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.CustomerPurchases">
-    <Position X="3.5" Y="3.25" Width="1.5" />
+    <Position X="0.75" Y="3.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>ACAAAAEBAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>ACEAAAEBAgAAQQAAAAAAAgAIAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>CustomerPurchases.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.Dashboard">
-    <Position X="13" Y="5.5" Width="1.5" />
+    <Position X="16" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIEAAAAAAAAEAAAAAAAAAIAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>QAAAAAEAEAAAAAAEABARAAAAAIAAgAAAAACAAAIAAAA=</HashCode>
       <FileName>Dashboard.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.ItemDetails">
-    <Position X="12.5" Y="1.25" Width="3.5" />
+    <Position X="12" Y="3.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAECCAAABAAAAAEBAAAgIAQIAAAAACAAAAAIACIAAAA=</HashCode>
+      <HashCode>AAECCAAABgAAAAEBAQAgIAQIAAAAACQAAAAIACIAAQA=</HashCode>
       <FileName>ItemDetails.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.Items">
-    <Position X="0.5" Y="7.25" Width="3" />
+    <Position X="3.5" Y="9" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEQAEAAgAAAAAQICgMgAAICB4AAAAAAIAAgA=</HashCode>
+      <HashCode>AAAAAIAAAQAEAAgAAAAAQICgMgAAICB4QAFAAAIAAgA=</HashCode>
       <FileName>Items.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.Login">
-    <Position X="7.5" Y="8.75" Width="1.5" />
+    <Position X="10.5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABgAAAAAAAAAAAAAAAAAACAAIAAACIAAAAAAAAJAAAA=</HashCode>
+      <HashCode>ABgAAAAAAAAAAAAAAAAAACAAIAAACIAAAAAAAAJgAAA=</HashCode>
       <FileName>Login.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.NotPurchased">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+    <Position X="12.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAABAAAAAAAAIAAAA=</HashCode>
       <FileName>NotPurchased.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StockManagementApplication.CustomerPurchase">
-    <Position X="1.25" Y="0.5" Width="1.5" />
+  <Class Name="StockManagementApplication.OldStock">
+    <Position X="3.25" Y="2" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>OldStock.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.RegisterUser">
-    <Position X="1" Y="2.75" Width="2.25" />
+    <Position X="4" Y="4.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>gggAAAASAAAAAAAAAAAAACAAIAAAAIAAAAgAAAIgAEA=</HashCode>
       <FileName>Registration\RegisterUser.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.Sales">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="8.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>GAwAADABIgBgAAADEAC0AIkgACAMMAAAAEQCCwIACCc=</HashCode>
       <FileName>Sales.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.Site1">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="10.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAgAAAAAAAAAAAAAABIAAAAAAAAAAAAAIAAAA=</HashCode>
+      <HashCode>AEAAAAAAgAAAAIAAAAAAAAABIAAAAAAAAAAAACIAAAA=</HashCode>
       <FileName>Site1.Master.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StockManagementApplication.User">
-    <Position X="9.25" Y="3.5" Width="2.75" />
+    <Position X="12.25" Y="5.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAhAABAACAcIBCAQCAgEAAAAwAAAAQIAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAhAAAAACAUIBCCQCAgEAAAAwAAAAQIAAAA=</HashCode>
       <FileName>User.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StockManagementApplication.MyProfile">
+    <Position X="5.5" Y="6.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACEAAQAARhCAAgAAIIEAIAAIAAQAIAAQMAAAA=</HashCode>
+      <FileName>MyProfile.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StockManagementApplication.OutOfStock">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>OutOfStock.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StockManagementApplication.StockUser" Collapsed="true">
+    <Position X="2" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgAAAASAAAAAAAAgAIAACAAAAAAAIAAAAgAAAIgAEE=</HashCode>
+      <FileName>StockUser.aspx.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

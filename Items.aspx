@@ -2,8 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>Hello</p>
+    <div class="mt-5">
+         <h2 >Items</h2>
+      <hr />
+    </div>
+    
     <div class="row justify-content-center" style="margin-left:100px;">
+        
       <div class="col-6 form-group row">
         <label  class="labels col-4">Item Name*</label>
         <asp:TextBox ID="txtItemName" CssClass="col-9 textInput form-control" style="margin-right: 10px;" runat="server"></asp:TextBox>
@@ -46,14 +51,13 @@
     </div>
     <div class="col-12 form-group row">
         <asp:Button ID="btnAddItems" style="margin-left: 25px; top: 0px; left: 0px;" runat="server" CssClass="col-10 btn btn-primary btn-block form-control" OnClick="btnAddItems_Click" Text="Add Items" />
+        <asp:Label ID="errorMsg" CssClass="ml-3" runat="server" Text="Error" Visible="false" ForeColor="Red"></asp:Label>
         <asp:SqlDataSource ID="itemDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" SelectCommand="SELECT [id], [Name] FROM [Category]"></asp:SqlDataSource>
-
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
     </div>
         
         </div>
-     <asp:GridView ID="grdItem" CssClass="table table-striped table-responsive table-bordered mt-4 mr-3" style="margin-right:10px" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3" OnRowCommand="grdItem_RowCommand">
+     <asp:GridView ID="grdItem" CssClass="table table-striped table-bordered mt-4 mr-3" style="margin-right:10px" runat="server" AutoGenerateColumns="False" DataKeyNames="itemId" DataSourceID="itemDataSource3" OnRowCommand="grdItem_RowCommand" OnRowDataBound="grdItem_RowDataBound">
             <Columns>
                 <asp:ButtonField CommandName="ViewDetails" ControlStyle-CssClass="btn btn-success" Text="Details" ItemStyle-HorizontalAlign="Center"/>
                  <asp:CommandField ItemStyle-HorizontalAlign="Center" ButtonType="Image" CancelImageUrl="~/assets/img/cancel.png" EditImageUrl="~/assets/img/edit.png"
@@ -74,14 +78,13 @@
             <asp:Button ID="btnOldStock" runat="server" CssClass="btn btn-info btn-lg btn-block" style="height:80px;" Text="View Old Items On Stock" OnClick="btnOldStock_Click" />
         </div>
         <div class="col-4">
-             <asp:Button ID="btnNotSold" runat="server"  CssClass="btn btn-warning btn-lg btn-block" style="height:80px;" Text="View Items Not Sold in Last 31 Days" OnClick="btnNotPurchased_Click" />
+             <asp:Button ID="btnNotSold" runat="server"  CssClass="btn btn-warning btn-lg btn-block" style="height:80px;" Text="View Items UnSold in Last 31 Days" OnClick="btnNotPurchased_Click" />
         </div>
        <div class="col-4">
             <asp:Button ID="btnSortItem" runat="server"  CssClass="btn btn-danger btn-lg btn-block" style="height:80px;" Text="View Items Out Of Stock" OnClick="btnSortItem_Click" />
        </div>
        
     </div>
-    
          <div>
 
        

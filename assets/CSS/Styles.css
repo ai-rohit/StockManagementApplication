@@ -6,7 +6,9 @@
 }
 .labels {
     font-family: "Barlow", sans-serif;
-    font-weight: bold
+    font-weight: bold;
+    top: -267px;
+    left: 15px;
 }
 #createAccount {
     align-self: center;

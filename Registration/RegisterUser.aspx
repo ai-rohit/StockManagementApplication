@@ -15,16 +15,18 @@
     <form id="form1" runat="server">
         <div class="row">
              <div class="form-container col-md-6" style="height:100vh">
-                 <h4>Login</h4>
-                <h6>Manage your stock faster and easier!</h6>
-                <hr /><p>Create a new account!</p><hr />
+                 <h2 style="text-align:center; margin-top: 80px; margin-right:20px;"><img src="https://img.icons8.com/color/48/000000/login-rounded-right.png"/>Register</h2>
+                <h6 style="text-align:center;">Manage your stock faster and easier!</h6>
+                <hr /><p style="margin-left:100px;"></p><hr />
                  <div class="align-middle" style="display:flex; flex-direction: column;">
                
                  <div class="form-group row justify-content-center">
                      <label for="txtEmail" class="labels col-9">Email</label>
                      <asp:TextBox ID="txtEmail" runat="server" class="textInput form-control col-8"></asp:TextBox>
-
-                 </div>
+                     <div class="col-12" style="margin-left:195px;">
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="*Invalid Email Address" ControlToValidate="txtEmail" Display="Dynamic" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    </div>
+                     </div>
                   <div class="form-group row justify-content-center">
                       <label for="txtUserName" class="labels col-9">User Name</label>
                      <asp:TextBox ID="txtUserName" runat="server" class="textInput form-control col-8"></asp:TextBox>
@@ -43,27 +45,31 @@
                  </div>
                   <div class="form-group row justify-content-center">
                       <label for="txtPassword" class="labels col-9">Password</label>
-                     <asp:TextBox ID="txtPassword" runat="server" class="textInput form-control col-8"></asp:TextBox>
+                     <asp:TextBox ID="txtPassword" type="password" runat="server" class="textInput form-control col-8"></asp:TextBox>
 
                  </div>
                   <div class="form-group row justify-content-center">
                       <label for="txtConfirmPassword" class="labels col-9">Confirm Password</label>
-                     <asp:TextBox ID="txtConfirmPassword" runat="server" class="textInput form-control col-8"></asp:TextBox>
+                     <asp:TextBox ID="txtConfirmPassword"  type="password" runat="server" class="textInput form-control col-8"></asp:TextBox>
+                      
                  </div>
                  <div>
 
-                     <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
+                     
 
                  </div>
                  <div class="form-group row justify-content-center">
+                     <asp:Label ID="errorLabel" style="margin-left:150px;" runat="server" ForeColor="Red" CssClass="col-8" Text="Label" Visible="False"></asp:Label>
                      <asp:Button ID="btnRegister" runat="server" Text="Get Registered" class="btn btn-primary btn-block col-8" OnClick="btnRegister_Click"/>
                  </div>
                  <p id="createAccount"><strong>Already registered?</strong><a runat="server" href="~/Login.aspx"> Sign in</a></p>
                 </div>
               </div>
 
-             <div class="side-background col-md-6 d-none d-md-block" style="background-color:blue; height:100vh">
-
+             <div class="side-background col-md-6 d-none d-md-block" style="background-color:blue; height:135vh">
+                  <h2 style="color:white; margin-top:150px; font-weight:bold; margin-left:200px;">Get Registered In </h2>
+            <h3  style="color:white; margin-top:10px; font-weight:bold; margin-left:100px;">Your Stock Management Application</h3>
+            <img src="../assets/img/register.svg" style="width:70%; margin-top:120px; margin-left:70px;"/>
             </div>
         </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

@@ -33,13 +33,16 @@ namespace StockManagementApplication
                     purchasedDate.Text = drvSql["purchaseDate"].ToString();
                     availableQuantity.Text = drvSql["quantity"].ToString();
                     unitPrice.Text = drvSql["itemPrice"].ToString();
+                    manufactureDate.Text = drvSql["manufacturedDate"].ToString();
+                    expiryDate.Text = drvSql["expiryDate"].ToString();
 
                     itemName.Visible = true;
                     category.Visible = true;
                     purchasedDate.Visible = true;
                     availableQuantity.Visible = true;
                     unitPrice.Visible = true;
-
+                    manufactureDate.Visible = true;
+                    expiryDate.Visible = true;
                 }
             }
         }

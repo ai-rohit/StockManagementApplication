@@ -12,7 +12,7 @@
         </div>
         <div class="form-group row justify-content-center">
             <asp:Label ID="labelEmail" CssClass="col-9" runat="server" Text="Customer Email"></asp:Label>
-            <asp:TextBox ID="txtCustomerEmail" CssClass="textInput form-control col-9" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerEmail" type="email" CssClass="textInput form-control col-9" runat="server"></asp:TextBox>
         </div>
         <div class="form-group row justify-content-center">
             <asp:Label ID="labelAddress" CssClass="col-9" runat="server" Text="Address"></asp:Label>
@@ -20,14 +20,14 @@
         </div>
         <div class="form-group row justify-content-center">
             <asp:Label ID="labelContact" CssClass="col-9" runat="server" Text="Mobile Number"></asp:Label>
-            <asp:TextBox ID="txtCustomerContact" CssClass="textInput form-control col-9" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCustomerContact" CssClass="textInput form-control col-9" runat="server" OnTextChanged="txtCustomerContact_TextChanged"></asp:TextBox>
         </div>
         <div class="form-group row justify-content-center">
             <asp:Label ID="labelMemberType" CssClass="col-9" runat="server" Text="MemberType"></asp:Label>
             <asp:TextBox ID="txtMemberType" CssClass="textInput form-control col-9" runat="server"></asp:TextBox>
              
             <asp:Button ID="btnAddCustomer" CssClass="btn btn-primary btn-block col-9" style="margin-top:20px" runat="server" Text="Add Customer" OnClick="btnAddCustomer_Click" />
-        
+            
         </div>
         <div>
              <asp:Label ID="msgLabel" runat="server" Text="ErrorMsg" Visible="false" ForeColor="Red"></asp:Label>
@@ -98,4 +98,5 @@
     </div>
         </div>
         </div>
+     
 </asp:Content>

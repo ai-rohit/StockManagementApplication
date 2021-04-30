@@ -76,6 +76,8 @@
     <Content Include="assets\img\edit.png" />
     <Content Include="assets\img\images.png" />
     <Content Include="assets\img\items-chart.png" />
+    <Content Include="assets\img\login.svg" />
+    <Content Include="assets\img\register.svg" />
     <Content Include="assets\js\main.js" />
     <Content Include="Category.aspx" />
     <Content Include="CustomerPurchases.aspx" />

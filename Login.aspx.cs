@@ -18,23 +18,41 @@ namespace StockManagementApplication
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            DataView data = (DataView)loginDataSource.Select(DataSourceSelectArguments.Empty);
-
-            bool authenticated = data.Table.Rows.Count > 0;
-
-            if (authenticated)
+            try
             {
-                Session["UserEmail"] = txtEmail.Text.ToString();
-                foreach (DataRowView drvSql in data)
+                if (txtEmail.Text == "" || txtPassword.Text == "")
                 {
-                    Session["UserType"] = drvSql["userType"].ToString();
+                    errorLabel.Visible = true;
+                    errorLabel.Text = "*Some fields seems to be empty. Please try again!";
+                    return;
                 }
-                FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
-                
+                DataView data = (DataView)loginDataSource.Select(DataSourceSelectArguments.Empty);
+
+                bool authenticated = data.Table.Rows.Count > 0;
+
+                if (authenticated)
+                {
+                    Session["UserEmail"] = txtEmail.Text.ToString();
+                    foreach (DataRowView drvSql in data)
+                    {
+                        Session["UserType"] = drvSql["userType"].ToString();
+                        Session["UserId"] = drvSql["userId"].ToString();
+                        Session["UserName"] = drvSql["userName"].ToString();
+                        Session["UserAddress"] = drvSql["userAddress"].ToString();
+                        Session["UserContact"] = drvSql["userContact"].ToString();
+                    }
+                    FormsAuthentication.RedirectFromLoginPage(txtEmail.Text, false);
+                    errorLabel.Visible = false;
+                }
+                else
+                {
+                    errorLabel.Visible = true;
+                    errorLabel.Text = "*Email and password doesn't match";
+                }
             }
-            else {
+            catch {
                 errorLabel.Visible = true;
-                errorLabel.Text = "Email and password doesn't match";
+                errorLabel.Text = "Something went wrong";
             }
         }
     }

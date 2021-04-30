@@ -109,6 +109,7 @@ namespace StockManagementApplication
                 lblCartMessage.Visible = true;
                 return;
             }
+
             if (lblCustomer.Text == "Customer Id" || dropDnCustomer.SelectedValue == lblCustomer.Text)
             {
                 lblCustomer.Text = dropDnCustomer.SelectedValue;
@@ -117,7 +118,15 @@ namespace StockManagementApplication
                 {
                     DataTable dtCurrentTable = (DataTable)Session["Cart"];
                     DataRow drCurrentRow = null;
-
+                    foreach (DataRow dr in dtCurrentTable.Rows)
+                    {
+                        if (dr["ItemId"].ToString() == dropDnItem.SelectedItem.Value)
+                        {
+                            msgLabel.Text = "*Item already in cart! Need to remove the item from cart to add again";
+                            msgLabel.Visible = true;
+                            return;
+                        }
+                    }
                     if (dtCurrentTable.Rows.Count > 0)
                     {
 
@@ -230,17 +239,6 @@ namespace StockManagementApplication
                     DataView orderData = (DataView)OrderDetailsDataSource.Select(DataSourceSelectArguments.Empty);
                     foreach (DataRow dr in cartTable.Rows)
                     {
-                      /*  cmd = new SqlCommand(orderDetailsQuery, conn, transaction);
-                        cmd.Parameters.AddWithValue("@itemId", dr["ItemId"].ToString());
-                        cmd.Parameters.AddWithValue("@quantity", dr["Quantity"].ToString());
-                        cmd.Parameters.AddWithValue("@lineTotal", dr["LineTotal"].ToString());
-                        cmd.Parameters.AddWithValue("@salesId", salesId.ToString());
-                        cmd.ExecuteNonQuery();
-
-                        cmd = new SqlCommand(quantityQuery, conn, transaction);
-                        cmd.Parameters.AddWithValue("@selectedQuantity", dr["Quantity"].ToString());
-                        cmd.Parameters.AddWithValue("@itemId", dr["ItemId"].ToString());
-                        cmd.ExecuteNonQuery();*/
                         OrderDetailsDataSource.InsertParameters["itemId"].DefaultValue = dr["ItemId"].ToString();
                         OrderDetailsDataSource.InsertParameters["quantity"].DefaultValue = dr["Quantity"].ToString();
                         OrderDetailsDataSource.InsertParameters["lineTotal"].DefaultValue = dr["LineTotal"].ToString();

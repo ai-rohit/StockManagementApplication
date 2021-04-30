@@ -62,9 +62,11 @@
             <asp:TextBox ID="txtBillingDate" class="textInput form-control col-9" type="Date" runat="server"></asp:TextBox>
             
              <asp:Button ID="btnPurchase" CssClass="btn btn-block btn-primary col-9 mt-4" runat="server" Text="Make Purchase" OnClick="btnPurchase_Click" />
+           
         </div>
+             <asp:Label ID="msgLabel" runat="server" Text="Error Message" style="margin-left:100px;" ForeColor="Red" Visible="False"></asp:Label>
         <div>
-           <asp:Label ID="msgLabel" runat="server" Text="Error Message" ForeColor="Red" Visible="False"></asp:Label>
+           
             <asp:SqlDataSource ID="salesDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:StockConnectionString %>" DeleteCommand="DELETE FROM [Sales] WHERE [salesId] = @salesId" InsertCommand="INSERT INTO [Sales] ([customerId], [billingDate], [totalAmount]) VALUES (@customerId, @billingDate, @totalAmount)" SelectCommand="SELECT * FROM [Sales]" UpdateCommand="UPDATE [Sales] SET [customerId] = @customerId, [billingDate] = @billingDate, [totalAmount] = @totalAmount WHERE [salesId] = @salesId">
                 <DeleteParameters>
                     <asp:Parameter Name="salesId" Type="Int32" />

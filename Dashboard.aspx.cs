@@ -30,15 +30,36 @@ namespace StockManagementApplication
                     string title = "Low Stock";
                     ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowUp('" + title + "', '" + serializedItems + "');", true);
                 }
+
+                DataView sales = (DataView)salesNumDataSource.Select(DataSourceSelectArguments.Empty);
+                DataView item = (DataView)itemNumDataSource.Select(DataSourceSelectArguments.Empty);
+                DataView customers = (DataView)numCustDataSource.Select(DataSourceSelectArguments.Empty);
+
+                foreach (DataRowView numOfSales in sales)
+                {
+                    string numSales = numOfSales["numSales"].ToString();
+                   lblNumSales.Text = numSales;
+                }
+                foreach (DataRowView numOfItems in item)
+                {
+                    string numItem = numOfItems["numItems"].ToString();
+                    lblNumItems.Text = numItem;
+                }
+                foreach (DataRowView numOfCust in customers)
+                {
+                    string numCustomer = numOfCust["numCustomer"].ToString();
+                    lblNumCustomers.Text = numCustomer;
+                }
+
             }
 
             if (Session["UserEmail"] != null && Session["UserEmail"].ToString() != "")
             {
-                lblUserEmail.Text = Session["UserEmail"].ToString();
+                return;
 
             }
             else {
-                lblUserEmail.Text = "Anonymous User";
+                Response.Redirect("~/Login.aspx");
             }
         }
 
