@@ -14,12 +14,14 @@ namespace StockManagementApplication
 
         }
 
+        //SeeAllPurchase button on click event method
         protected void btnSeeAllPurchase_Click(object sender, EventArgs e)
         {
             grdPurchases.Visible = false;
             grdAllPurchase.Visible = true;
         }
 
+        //drop down index changed event method
         protected void drpDownCustomer_SelectedIndexChanged(object sender, EventArgs e)
         {
             grdAllPurchase.Visible = false;

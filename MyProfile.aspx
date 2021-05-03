@@ -53,7 +53,7 @@
                      </SelectParameters>
                 </asp:SqlDataSource>
                  <asp:TextBox ID="txtConfirmPassword" type="password" CssClass="textInput form-control" runat="server"></asp:TextBox>
-                <asp:Label ID="msgLabel" runat="server" Text="Label" Visible="false"></asp:Label>
+                <asp:Label ID="msgLabel" runat="server" Text="Label" Visible="False" ForeColor="Red"></asp:Label>
             </div>
 
              <div class="col-12 mt-4">

@@ -16,6 +16,8 @@ namespace StockManagementApplication
         int lineTotal;
 
         DataTable cart = new DataTable();
+
+        //Page Load event method
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) {
@@ -23,16 +25,19 @@ namespace StockManagementApplication
             }
         }
 
+        //Drop down index changed method
         protected void dropDnItem_SelectedIndexChanged(object sender, EventArgs e)
         {
             getLineTotal();
         }
 
+        //Text box input change method
         protected void txtQuantity_TextChanged(object sender, EventArgs e)
         {
             getLineTotal();
         }
 
+        //getting line total from input intem and quantity to be purchased
         public void getLineTotal() {
             try
             {
@@ -54,6 +59,7 @@ namespace StockManagementApplication
             }
         }
 
+        //Button click evevnt method for adding items to cart.
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             try
@@ -66,6 +72,7 @@ namespace StockManagementApplication
             }
         }
 
+        //Method to initiate the cart in sales page
         public void InitiateCart() {
             try
             {
@@ -103,6 +110,7 @@ namespace StockManagementApplication
 
 }
 
+        //method to add items to the cart
         public void AddToCart() {
             if (Int32.Parse(lblQuantity.Text) < Int32.Parse(txtQuantity.Text)) {
                 lblCartMessage.Text = "The quantity you selected exceeds the quantity on stock for the item!";
@@ -169,6 +177,7 @@ namespace StockManagementApplication
             }
         }
 
+        //calculate total amount based on price of items added in cart
         private int CalculateTotalAmount() {
             int totalAmount = 0;
             DataTable cartTable = (DataTable)Session["Cart"];
@@ -187,11 +196,10 @@ namespace StockManagementApplication
             return totalAmount;
         }
 
+        //Event method for purchase button
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
-          /*  DateTime minDate = DateTime.Parse("01/01/2018");
-            DateTime today = DateTime.Today;
-            DateTime selectedDate = Convert.ToDateTime(txtBillingDate.Text);*/
+         
             try
             {
                 int totalAmount = 0;
@@ -268,6 +276,8 @@ namespace StockManagementApplication
             }
                   
         }
+        
+        //Method to clear the cart and initiate it
         public void clearAndInitiateCart() {
             Session["Cart"] = null;
             lblCustomer.Text = "Customer Id";
@@ -304,6 +314,7 @@ namespace StockManagementApplication
 
         }
 
+        //Row command event method for command field in grid view
         protected void grdCart_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             
@@ -316,6 +327,7 @@ namespace StockManagementApplication
             }
         }
 
+        //method to remove items form the cart
         public void removeItemFromCart(int index) {
             try
             {

@@ -16,6 +16,7 @@ namespace StockManagementApplication
 
         }
 
+        //Login Button on click event method
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -28,10 +29,12 @@ namespace StockManagementApplication
                 }
                 DataView data = (DataView)loginDataSource.Select(DataSourceSelectArguments.Empty);
 
+                //check email and password
                 bool authenticated = data.Table.Rows.Count > 0;
 
                 if (authenticated)
                 {
+                    //adding user details in session
                     Session["UserEmail"] = txtEmail.Text.ToString();
                     foreach (DataRowView drvSql in data)
                     {

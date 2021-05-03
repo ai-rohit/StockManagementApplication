@@ -10,8 +10,10 @@ namespace StockManagementApplication
 {
     public partial class StockUser : System.Web.UI.Page
     {
+        //PageLoad event method
         protected void Page_Load(object sender, EventArgs e)
         {
+            //authorizing admin only using session
             string userType = (string)Session["UserType"];
             if (userType != "admin")
             {
@@ -26,6 +28,7 @@ namespace StockManagementApplication
             }
         }
 
+        //Event method for Register button to add user
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             try

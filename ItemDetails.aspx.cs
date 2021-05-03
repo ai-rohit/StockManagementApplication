@@ -10,8 +10,10 @@ namespace StockManagementApplication
 {
     public partial class ItemDetails : System.Web.UI.Page
     {
+        //Page Load event Method for ItemDetails Class 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //checking session
             if (Session["ItemId"] == null || Session["ItemId"].ToString() == "")
             {
                 Response.Redirect("~/Items.aspx");
@@ -19,15 +21,11 @@ namespace StockManagementApplication
             else {
                 string itemId = (string)Session["ItemId"];
                 txtItemId.Text = itemId;
+                //getting data from session an data source
                 DataView data = (DataView)itemDetailsSource.Select(DataSourceSelectArguments.Empty);
                 foreach (DataRowView drvSql in data)
                 {
-                    /*lineTotal = Int32.Parse(drvSql["itemPrice"].ToString()) * Int32.Parse(txtQuantity.Text);
-                    txtLineTotal.Text = lineTotal.ToString();
-                    lblQuantity.Text = drvSql["quantity"].ToString();
-                    lblSelectedItem.Text = drvSql["itemName"].ToString();
-                    lblItemCategory.Text = drvSql["name"].ToString();
-                    lblItemPrice.Text = drvSql["itemPrice"].ToString();*/
+                   
                     itemName.Text = drvSql["itemName"].ToString();
                     category.Text = drvSql["name"].ToString();
                     purchasedDate.Text = drvSql["purchaseDate"].ToString();

@@ -20,6 +20,7 @@ namespace StockManagementApplication
 
         }
 
+        //Button click event method to add customers
         protected void btnAddCustomer_Click(object sender, EventArgs e)
         {
             try

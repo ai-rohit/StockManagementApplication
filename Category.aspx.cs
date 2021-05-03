@@ -15,6 +15,7 @@ namespace StockManagementApplication
 
         }
 
+        //Event method for button click(Add Category)
         protected void btnAddCategory_Click(object sender, EventArgs e)
         {
             try
@@ -25,7 +26,7 @@ namespace StockManagementApplication
                     errorMsg.Visible = true;
                     return;
                 }
-
+                //Getting data from data source
                 DataView dataview = (DataView)categoryDataSource2.Select(DataSourceSelectArguments.Empty);
                 bool duplicate = dataview.Table.Rows.Count > 0;
 
@@ -36,6 +37,7 @@ namespace StockManagementApplication
                 }
                 else
                 {
+                    //Adding category using datasource
                     errorMsg.Visible = false;
                     /*categoryDataSource2.InsertParameters["id"].DefaultValue = txtCategoryId.Text;*/
                     categoryDataSource2.InsertParameters["Name"].DefaultValue = txtCategoryName.Text;
@@ -60,6 +62,7 @@ namespace StockManagementApplication
 
         protected void grdCategory_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            //Row command click event method
             if (e.CommandName == "ViewItems")
             {
                 int index = Convert.ToInt32(e.CommandArgument);

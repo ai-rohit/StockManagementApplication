@@ -9,6 +9,7 @@ namespace StockManagementApplication
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
+        //Page Load event method
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserEmail"] == null || Session["UserEmail"].ToString() == "")
@@ -21,10 +22,12 @@ namespace StockManagementApplication
             }
         }
 
+        //Method for logging out user
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             try
             {
+                //Clearing session and redirecting user to Login page
                 Session.Clear();
                 Response.Redirect("~/Login.aspx");
             }

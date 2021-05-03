@@ -15,6 +15,7 @@ namespace StockManagementApplication
 
         }
 
+        //Register button click event method
         protected void btnRegister_Click(object sender, EventArgs e)
         {
             try
@@ -31,6 +32,7 @@ namespace StockManagementApplication
                     errorLabel.Text = "*Password and cofirm password doesnot match!";
                     return;
                 }
+                //checking if page is valid
                 if (Page.IsValid)
                 {
                     DataView data = (DataView)registrationDataSource.Select(DataSourceSelectArguments.Empty);
@@ -38,7 +40,7 @@ namespace StockManagementApplication
                     if (!duplicate)
                     {
                         //DateTime today = DateTime.Today;
-
+                        //Inserting data into data source
                         registrationDataSource.InsertParameters["userEmail"].DefaultValue = txtEmail.Text;
                         registrationDataSource.InsertParameters["userName"].DefaultValue = txtUserName.Text;
                         registrationDataSource.InsertParameters["userAddress"].DefaultValue = txtUserAddress.Text;

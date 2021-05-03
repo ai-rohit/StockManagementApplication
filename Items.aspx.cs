@@ -15,6 +15,7 @@ namespace StockManagementApplication
 
         }
 
+        //AddItems button click event method
         protected void btnAddItems_Click(object sender, EventArgs e)
         {
             try
@@ -35,6 +36,7 @@ namespace StockManagementApplication
                 }
                 else
                 {
+                    //adding items to table using datasource
                     itemDataSource2.InsertParameters["itemName"].DefaultValue = txtItemName.Text;
                     itemDataSource2.InsertParameters["itemDesc"].DefaultValue = txtItemDesc.Text;
                     itemDataSource2.InsertParameters["itemPrice"].DefaultValue = txtItemPrice.Text;
